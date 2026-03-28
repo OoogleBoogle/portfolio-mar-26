@@ -4,7 +4,7 @@
    Source of truth: .claude/DESIGN.md
    ============================================================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap');
+/* Text fonts are loaded via Astro's font system in astro.config.mjs + Layout.astro <Font> components */
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
 
 /* =============================================================================
@@ -12,10 +12,11 @@
    ============================================================================= */
 
 :root {
-  /* --- Fonts --- */
-  --font-headline: 'Space Grotesk', sans-serif;
-  --font-body: 'Newsreader', serif;
-  --font-label: 'Space Grotesk', sans-serif;
+  /* --- Fonts ---
+     --font-headline and --font-body are injected by Astro's font system
+     (astro.config.mjs + <Font> components in Layout.astro).
+     --font-label is an alias for the headline font. */
+  --font-label: var(--font-headline);
 
   /* --- Surface colours --- */
   --color-background:                #f7f7f2;
