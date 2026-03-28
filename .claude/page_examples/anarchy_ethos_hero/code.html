@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&amp;family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary-fixed-variant": "#646400",
+              "surface-dim": "#d3d5cf",
+              "on-tertiary-fixed": "#505050",
+              "on-background": "#2d2f2c",
+              "on-surface-variant": "#5a5c58",
+              "surface-tint": "#5f5f00",
+              "primary-fixed-dim": "#e4e400",
+              "outline-variant": "#adada9",
+              "surface-variant": "#dcddd7",
+              "surface-container-low": "#f1f1ec",
+              "tertiary": "#5b5b5b",
+              "on-error": "#ffefec",
+              "surface-bright": "#f7f7f2",
+              "surface-container": "#e8e9e3",
+              "on-tertiary": "#f3f3f3",
+              "tertiary-fixed": "#ffffff",
+              "primary": "#5f5f00",
+              "on-primary-container": "#5a5a00",
+              "tertiary-fixed-dim": "#f1f11",
+              "on-secondary-container": "#8d0058",
+              "inverse-surface": "#0d0f0c",
+              "surface-container-high": "#e2e3dd",
+              "on-surface": "#2d2f2c",
+              "inverse-on-surface": "#9c9d99",
+              "primary-container": "#f3f300",
+              "on-primary": "#fbfb00",
+              "surface": "#f7f7f2",
+              "inverse-primary": "#ffff00",
+              "background": "#f7f7f2",
+              "surface-container-highest": "#dcddd7",
+              "secondary-fixed-dim": "#ffabce",
+              "outline": "#767773",
+              "on-secondary-fixed": "#6a0041",
+              "on-error-container": "#520c00",
+              "on-secondary-fixed-variant": "#9a1062",
+              "on-secondary": "#ffeff3",
+              "surface-container-lowest": "#ffffff",
+              "secondary": "#a8216e",
+              "tertiary-container": "#ffffff",
+              "primary-dim": "#525200",
+              "on-primary-fixed": "#474700",
+              "on-tertiary-fixed-variant": "#6d6d6d",
+              "error-dim": "#b92902",
+              "on-tertiary-container": "#626262",
+              "tertiary-dim": "#4f4f4f",
+              "error-container": "#f95630",
+              "secondary-container": "#ffc0d9",
+              "error": "#b02500",
+              "primary-fixed": "#f3f300",
+              "secondary-fixed": "#ffc0d9",
+              "secondary-dim": "#980f61"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Newsreader"],
+              "label": ["Space Grotesk"]
+            },
+            borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24
+    }
+.halftone-overlay {
+    background-image: radial-gradient(#2d2f2c 1px, transparent 0);
+    background-size: 4px 4px;
+    opacity: 0.1
+    }
+.grain-texture {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuA64Jo7K2UCCcdS0WYy8BdrrdfTExHeL_g9VG4CF4x4yngMHwPdk1B9Whuuji8B6eujyJ_acxd1yzEuuBvkgNzwQexIDKHorVX40b0whT_dO4xIXLMS8XZBUge-7oIHjnpTPt5cFhkWdH61rKnJJHWtdpm3M5qVBLD8SwX0QoEY2KeiwSwLM3tfrrosN5BiSyf7FuPfCYPjKvCmd6IIkzXejyg3JexKypqQlDBEep2dR0BCxF50M0qP4kcsylwCW3yFK071Ei4rjxA)
+    }
+.torn-edge-bottom {
+    mask-image: url(https://raw.githubusercontent.com/gist/bentayloruk/5425713/raw/c6d5b0d0d8c7c9e1e2d6b384c37f0b5d5d1c5d5d/torn.svg);
+    mask-size: cover
+    }
+.text-distort {
+    transform: scaley(1.3) skewx(-10deg)
+    }
+.ransom-note {
+    display: inline-block;
+    transform: rotate(var(--rot))
+    }
+.xerox-effect {
+    filter: contrast(200%) brightness(150%) grayscale(100%);
+    background-color: white;
+    color: black;
+    box-shadow: 1px 1px 0px #000, 2px 2px 0px #000;
+}
+.torn-paper {
+    clip-path: polygon(0% 0%, 100% 0%, 98% 10%, 100% 21%, 97% 32%, 100% 45%, 98% 56%, 100% 68%, 97% 82%, 100% 91%, 96% 100%, 0% 100%, 2% 88%, 0% 77%, 4% 65%, 1% 54%, 3% 42%, 0% 31%, 2% 19%, 0% 9%);
+}
+</style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-inverse-primary selection:text-black grain-texture">
+<!-- TopAppBar -->
+<nav class="fixed top-0 w-full z-50 h-16 transform -rotate-1 origin-left border-b-4 border-double border-yellow-400 bg-neutral-900 dark:bg-black drop-shadow-[8px_8px_0px_rgba(0,0,0,1)] flex justify-between items-center px-6 py-2 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]">
+<div class="text-yellow-400 font-black italic bg-neutral-900 px-4 py-1 -rotate-2 border-2 border-yellow-400 font-['Space_Grotesk'] uppercase tracking-tighter text-2xl skew-x-[-6deg]">
+            PORTFOLIO_V2.0
+        </div>
+<div class="hidden md:flex gap-8 items-center font-['Space_Grotesk'] font-bold">
+<a class="underline decoration-4 underline-offset-4 text-white bg-yellow-400 px-2 transition-all hover:-rotate-3 hover:scale-110 duration-75" href="#">WORK</a>
+<a class="text-yellow-400 hover:text-white transition-colors transition-all hover:-rotate-3 hover:scale-110 duration-75" href="#">ARCHIVE</a>
+</div>
+<button class="text-yellow-400 hover:-rotate-3 hover:scale-110 duration-75 active:translate-y-1 active:shadow-none">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+</nav>
+<!-- Main Content Canvas -->
+<main class="relative min-h-screen pt-32 pb-24 overflow-hidden">
+<!-- Hero Section: Digital Gig Poster -->
+<section class="container mx-auto px-6 relative z-10">
+<div class="flex flex-col md:flex-row gap-12 items-start">
+<!-- Left Column: The "Ransom Note" Typography -->
+<div class="w-full md:w-3/4 relative">
+<div class="absolute -top-12 -left-8 w-48 h-12 bg-primary-fixed opacity-70 -rotate-3 z-0"></div>
+<h1 class="font-headline font-black text-[12vw] md:text-[10vw] leading-[0.8] tracking-tighter text-on-background relative z-10">
+<span class="ransom-note text-distort bg-on-background text-surface px-4 py-2" style="--rot: -2deg">SIMON</span><br/>
+<span class="ransom-note text-secondary -mt-4" style="--rot: 1deg">ATTFIELD</span>
+</h1>
+<div class="mt-12 max-w-2xl transform rotate-1">
+<div class="bg-primary-container p-6 border-l-[12px] border-on-background relative">
+<div class="halftone-overlay absolute inset-0"></div>
+<h2 class="font-headline text-4xl md:text-6xl font-black uppercase italic leading-none mb-4">
+                                8+ YEARS OF FRONT-END ANARCHY
+                            </h2>
+<!-- Front-End Ethos Xerox Block -->
+<div class="mt-8 mb-8 xerox-effect torn-paper p-8 transform -rotate-2 border-2 border-black relative overflow-hidden">
+<div class="absolute top-0 right-0 w-full h-full bg-yellow-400 mix-blend-multiply opacity-20 pointer-events-none"></div>
+<h3 class="font-headline text-3xl font-black mb-2 uppercase tracking-tighter border-b-4 border-black inline-block">THE CODE IS THE MESSAGE.</h3>
+<p class="font-body text-xl md:text-2xl leading-tight font-bold mt-4">
+        If a site doesn't need a framework, it doesn't get one. <span class="bg-black text-white px-1">Static stays static.</span> Native web components for the soul. The right tool for the right job, always.
+    </p>
+</div>
+<p class="font-body text-xl md:text-2xl leading-relaxed italic mb-8">
+                                Dismantling clean grids and corporate sterility one pixel at a time. I don't build "solutions"—I build experiences that actually feel something.
+                            </p>
+<!-- Tape Element -->
+<div class="absolute -top-4 -right-8 w-32 h-10 bg-secondary-container opacity-80 rotate-12 flex items-center justify-center">
+<span class="font-label text-xs font-bold uppercase tracking-widest text-on-secondary-container">NON-CONFORMIST</span>
+</div>
+<div class="mt-8">
+<a class="inline-block bg-on-background text-surface font-headline font-black text-2xl px-6 py-3 uppercase tracking-tighter hover:bg-secondary hover:text-white transition-colors transform -rotate-1 hover:rotate-0 duration-150" href="#">
+        LINKEDIN
+    </a>
+</div></div>
+</div>
+</div>
+<!-- Right Column: Contextual Card -->
+<div class="w-full md:w-1/4 flex flex-col gap-6">
+<!-- Location Tag -->
+<div class="bg-surface-container-highest p-4 border-2 border-on-background -rotate-2 shadow-[4px_4px_0px_#2d2f2c]">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">location_on</span>
+<span class="font-label font-bold text-sm uppercase">CURRENT BASE</span>
+</div>
+<p class="font-headline font-black text-xl">BETHESDA, MD / REMOTE</p>
+</div>
+<!-- Visual Scrap -->
+<div class="relative w-full aspect-[4/5] bg-on-surface overflow-hidden border-4 border-white rotate-3 shadow-[12px_12px_0px_#f3f300]">
+<img alt="Digital Punk Aesthetic" class="w-full h-full object-cover mix-blend-screen opacity-80" data-alt="Grungy monochromatic close-up of distorted television static with high contrast and heavy xerox grain texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChx9NE5pPqoldBbs_OpAPBn0-SzqKdhch6i4VWpqmrEczr-SQMKQ27jjM4If2-_EdBVWWlUSwl43rOg_nJaeM4iimQNk2_sEuKV4sYI_jGzHPQSwTfyIVmxUkFW7KijKWByuxUHK8FuqrFHJL_jq7oEGJ5GKUqAtktRByJk5mvNRZXBB5GX2HOalWfXMMH8A62VaW7m95TxfSkyy4HHFijDZkZG0OMJGpz3BMNCRI7G2IJOYxrWlTr5dpxX7U8hEaOfZLnK59M79A"/>
+<div class="absolute inset-0 halftone-overlay"></div>
+<div class="absolute bottom-4 left-4 bg-white text-black font-label font-black px-2 py-1 uppercase text-xs">
+                            IMG_9042_XEROX
+                        </div>
+</div>
+</div>
+</div>
+<!-- Bento Grid of "Anarchy" -->
+<div class="mt-24 grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
+<!-- Large Feature: Fragmented Image -->
+<div class="md:col-span-8 bg-surface-container-low p-8 relative overflow-hidden flex flex-col justify-end min-h-[400px]">
+<div class="absolute top-0 right-0 w-full h-full grayscale opacity-20 z-0">
+<img alt="Abstract Chaos" class="w-full h-full object-cover" data-alt="Intense neon yellow and black abstract glitch art pattern with vertical stripes and digital distortion artifacts" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjqoP6S7PzqEDsAcWXY-85c7BZJq00QTmaolgioFXR2VZ8UZeJSTIie6U-m7sUzHEVrAIF6EOrq0s0hxaE9PSrCXvtonf-yQ4GZeiOKmx7fYDUA59C8ibDDstG9Bv5FeqIcVAgpqp1I3QvyV7CFEyCDoOSf2dTxQDDxn7MRudSOuSCgapqDgJj6IZHRILeAuVXGEOUpE7XoyS8uw33vv3CtPOyIP0vzWoE1_UHvFPlki9vPlI-0QXoz4-_PRRyrxHJmR6XVjMXMzI"/>
+</div>
+<div class="relative z-10 max-w-xl">
+<h3 class="font-headline text-5xl font-black uppercase mb-6 leading-none">The Code is the Message</h3>
+<p class="font-body text-2xl bg-on-background text-surface inline p-2 box-decoration-clone">
+                            Breaking pre-conceived notions of what a "button" should look like. No frameworks for the soul.
+                        </p>
+</div>
+<div class="absolute top-4 right-4 text-on-background/20 font-black text-9xl -z-10 select-none">001</div>
+</div>
+<!-- Small Grid: Manifesto -->
+<div class="md:col-span-4 bg-secondary p-8 flex flex-col justify-between -rotate-1 shadow-[8px_8px_0px_#2d2f2c]">
+<span class="material-symbols-outlined text-white text-5xl" style="font-variation-settings: 'FILL' 1;">warning</span>
+<div>
+<h4 class="font-headline text-white text-3xl font-bold uppercase mb-4 underline decoration-4">MANIFESTO</h4>
+<ul class="font-label text-white/90 space-y-2 text-sm font-bold">
+<li>- NO COMFORT ZONES</li>
+<li>- ACCESSIBILITY IS NON-NEGOTIABLE</li>
+<li>- PERFECTION IS THE ENEMY</li>
+<li>- RAW &gt; POLISHED</li>
+</ul>
+</div>
+</div>
+<!-- Call to Action -->
+</div>
+</section>
+<!-- Decorative Elements -->
+<div class="fixed top-1/4 -right-20 pointer-events-none select-none opacity-5">
+<span class="font-headline font-black text-[30rem] leading-none">NO</span>
+</div>
+<div class="fixed bottom-1/4 -left-20 pointer-events-none select-none opacity-5">
+<span class="font-headline font-black text-[30rem] leading-none">YES</span>
+</div>
+</main>
+<!-- Footer -->
+<footer class="relative w-full py-12 border-t-8 border-black dark:border-yellow-400 overflow-hidden bg-neutral-100 dark:bg-neutral-900 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] bg-repeat">
+<div class="flex flex-col md:flex-row justify-between items-center px-8 gap-4 w-full font-['Space_Grotesk'] font-bold text-sm tracking-[0.2em] text-neutral-900 dark:text-white">
+<div class="uppercase">©2024 DEV_NULL / BETHESDA, MD / REMOTE</div>
+<div class="flex gap-12">
+<a class="text-neutral-600 dark:text-neutral-400 underline decoration-dotted hover:invert transition-all duration-75" href="#">GITHUB</a><a class="text-neutral-600 dark:text-neutral-400 underline decoration-dotted hover:invert transition-all duration-75" href="#">LINKEDIN</a>
+<a class="text-neutral-600 dark:text-neutral-400 underline decoration-dotted hover:invert transition-all duration-75" href="#">READ_ME</a>
+</div>
+<!-- Physical Stamp -->
+<div class="absolute -bottom-4 right-8 w-24 h-24 border-4 border-secondary text-secondary font-black flex items-center justify-center rounded-full rotate-12 opacity-50 uppercase text-[10px] text-center p-2 leading-tight">
+                CERTIFIED ORIGINAL
+            </div>
+</div>
+</footer>
+</body></html>

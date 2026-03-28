@@ -1,0 +1,111 @@
+/* =============================================================================
+   PUNK PORTFOLIO — GLOBAL CSS
+   Design system tokens: colors, typography. No utility classes.
+   Source of truth: .claude/DESIGN.md
+   ============================================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+
+/* =============================================================================
+   DESIGN TOKENS
+   ============================================================================= */
+
+:root {
+  /* --- Fonts --- */
+  --font-headline: 'Space Grotesk', sans-serif;
+  --font-body: 'Newsreader', serif;
+  --font-label: 'Space Grotesk', sans-serif;
+
+  /* --- Surface colours --- */
+  --color-background:                #f7f7f2;
+  --color-surface:                   #f7f7f2;
+  --color-surface-bright:            #f7f7f2;
+  --color-surface-dim:               #d3d5cf;
+  --color-surface-variant:           #dcddd7;
+  --color-surface-container-lowest:  #ffffff;
+  --color-surface-container-low:     #f1f1ec;
+  --color-surface-container:         #e8e9e3;
+  --color-surface-container-high:    #e2e3dd;
+  --color-surface-container-highest: #dcddd7;
+  --color-inverse-surface:           #0d0f0c;
+
+  /* --- On-surface colours --- */
+  --color-on-background:      #2d2f2c;
+  --color-on-surface:         #2d2f2c;
+  --color-on-surface-variant: #5a5c58;
+  --color-inverse-on-surface: #9c9d99;
+
+  /* --- Primary — electric olive/yellow --- */
+  --color-primary:                   #5f5f00;
+  --color-on-primary:                #fbfb00;
+  --color-primary-container:         #f3f300;
+  --color-on-primary-container:      #5a5a00;
+  --color-primary-fixed:             #f3f300;
+  --color-primary-fixed-dim:         #e4e400;
+  --color-on-primary-fixed:          #474700;
+  --color-on-primary-fixed-variant:  #646400;
+  --color-primary-dim:               #525200;
+  --color-inverse-primary:           #ffff00;
+  --color-surface-tint:              #5f5f00;
+
+  /* --- Secondary — hot pink --- */
+  --color-secondary:                   #a8216e;
+  --color-on-secondary:                #ffeff3;
+  --color-secondary-container:         #ffc0d9;
+  --color-on-secondary-container:      #8d0058;
+  --color-secondary-fixed:             #ffc0d9;
+  --color-secondary-fixed-dim:         #ffabce;
+  --color-on-secondary-fixed:          #6a0041;
+  --color-on-secondary-fixed-variant:  #9a1062;
+  --color-secondary-dim:               #980f61;
+
+  /* --- Tertiary — neutral grey --- */
+  --color-tertiary:                   #5b5b5b;
+  --color-on-tertiary:                #f3f3f3;
+  --color-tertiary-container:         #ffffff;
+  --color-on-tertiary-container:      #626262;
+  --color-tertiary-fixed:             #ffffff;
+  --color-tertiary-fixed-dim:         #f1f1f1;
+  --color-on-tertiary-fixed:          #505050;
+  --color-on-tertiary-fixed-variant:  #6d6d6d;
+  --color-tertiary-dim:               #4f4f4f;
+
+  /* --- Error --- */
+  --color-error:             #b02500;
+  --color-on-error:          #ffefec;
+  --color-error-container:   #f95630;
+  --color-on-error-container:#520c00;
+  --color-error-dim:         #b92902;
+
+  /* --- Outline --- */
+  --color-outline:         #767773;
+  --color-outline-variant: #adada9;
+}
+
+/* =============================================================================
+   BASE RESET
+   ============================================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  border-radius: 0; /* No rounded corners — design rule */
+}
+
+/* =============================================================================
+   BASE STYLES
+   ============================================================================= */
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-on-background);
+  font-family: var(--font-body);
+  margin: 0;
+}
+
+::selection {
+  background-color: var(--color-inverse-primary);
+  color: #000000;
+}

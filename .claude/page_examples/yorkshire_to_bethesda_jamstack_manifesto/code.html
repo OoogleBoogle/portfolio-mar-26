@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&amp;family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary-fixed-variant": "#646400",
+              "surface-dim": "#d3d5cf",
+              "on-tertiary-fixed": "#505050",
+              "on-background": "#2d2f2c",
+              "on-surface-variant": "#5a5c58",
+              "surface-tint": "#5f5f00",
+              "primary-fixed-dim": "#e4e400",
+              "outline-variant": "#adada9",
+              "surface-variant": "#dcddd7",
+              "surface-container-low": "#f1f1ec",
+              "tertiary": "#5b5b5b",
+              "on-error": "#ffefec",
+              "surface-bright": "#f7f7f2",
+              "surface-container": "#e8e9e3",
+              "on-tertiary": "#f3f3f3",
+              "tertiary-fixed": "#ffffff",
+              "primary": "#5f5f00",
+              "on-primary-container": "#5a5a00",
+              "tertiary-fixed-dim": "#f1f1f1",
+              "on-secondary-container": "#8d0058",
+              "inverse-surface": "#0d0f0c",
+              "surface-container-high": "#e2e3dd",
+              "on-surface": "#2d2f2c",
+              "inverse-on-surface": "#9c9d99",
+              "primary-container": "#f3f300",
+              "on-primary": "#fbfb00",
+              "surface": "#f7f7f2",
+              "inverse-primary": "#ffff00",
+              "background": "#f7f7f2",
+              "surface-container-highest": "#dcddd7",
+              "secondary-fixed-dim": "#ffabce",
+              "outline": "#767773",
+              "on-secondary-fixed": "#6a0041",
+              "on-error-container": "#520c00",
+              "on-secondary-fixed-variant": "#9a1062",
+              "on-secondary": "#ffeff3",
+              "surface-container-lowest": "#ffffff",
+              "secondary": "#a8216e",
+              "tertiary-container": "#ffffff",
+              "primary-dim": "#525200",
+              "on-primary-fixed": "#474700",
+              "on-tertiary-fixed-variant": "#6d6d6d",
+              "error-dim": "#b92902",
+              "on-tertiary-container": "#626262",
+              "tertiary-dim": "#4f4f4f",
+              "error-container": "#f95630",
+              "secondary-container": "#ffc0d9",
+              "error": "#b02500",
+              "primary-fixed": "#f3f300",
+              "secondary-fixed": "#ffc0d9",
+              "secondary-dim": "#980f61"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Newsreader"],
+              "label": ["Space Grotesk"]
+            },
+            borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .xerox-grain {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.04;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+        .halftone {
+            background-image: radial-gradient(#2d2f2c 15%, transparent 16%);
+            background-size: 4px 4px;
+        }
+        .skew-title { transform: skew-x(-6deg); }
+        .tape-strip {
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='20' viewBox='0 0 100 20'%3E%3Cpath d='M0 0 L5 2 L10 0 L15 3 L20 0 L25 4 L30 1 L35 5 L40 2 L45 6 L50 3 L55 7 L60 4 L65 8 L70 5 L75 9 L80 6 L85 10 L90 7 L95 11 L100 8 V20 L95 18 L90 20 L85 17 L80 19 L75 16 L70 18 L65 15 L60 17 L55 14 L50 16 L45 13 L40 15 L35 12 L30 14 L25 11 L20 13 L15 10 L10 12 L5 9 L0 11 Z' fill='black'/%3E%3C/svg%3E");
+            mask-size: cover;
+        }
+        .manual-dots {
+            background-image: radial-gradient(#000 1px, transparent 0);
+            background-size: 12px 12px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary-container selection:text-on-primary-container">
+<div class="xerox-grain"></div>
+<!-- TopAppBar -->
+<nav class="fixed top-0 w-full z-50 h-16 transform -rotate-1 origin-left flex justify-between items-center px-6 py-2 bg-neutral-900 border-b-4 border-double border-yellow-400 drop-shadow-[8px_8px_0px_rgba(0,0,0,1)] bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]">
+<div class="flex items-center gap-4">
+<span class="text-yellow-400 font-black italic bg-neutral-900 px-4 py-1 -rotate-2 border-2 border-yellow-400 font-['Space_Grotesk'] uppercase tracking-tighter text-2xl skew-x-[-6deg]">
+                PORTFOLIO_V2.0
+            </span>
+</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-['Space_Grotesk'] uppercase tracking-tighter text-2xl skew-x-[-6deg] text-yellow-400 hover:text-white transition-colors hover:-rotate-3 hover:scale-110 duration-75 active:translate-y-1" href="#">WORK</a>
+<a class="font-['Space_Grotesk'] uppercase tracking-tighter text-2xl skew-x-[-6deg] underline decoration-4 underline-offset-4 text-white bg-yellow-400 px-2 hover:-rotate-3 hover:scale-110 duration-75 active:translate-y-1" href="#">ARCHIVE</a>
+</div>
+<button class="text-yellow-400 hover:-rotate-3 hover:scale-110 duration-75 active:translate-y-1">
+<span class="material-symbols-outlined text-4xl">menu</span>
+</button>
+</nav>
+<main class="min-h-screen pt-32 pb-24 px-6 max-w-6xl mx-auto flex flex-col items-center justify-center relative overflow-hidden">
+<!-- Hero Section -->
+<section class="relative z-10 w-full flex flex-col items-center gap-12 text-center">
+<div class="relative">
+<div class="absolute -top-12 -left-12 w-24 h-24 bg-primary-container halftone -z-10 opacity-40"></div>
+<h1 class="font-headline font-black text-6xl md:text-9xl tracking-tighter uppercase leading-none mix-blend-multiply mb-4"><span class="block bg-on-background text-surface px-6 py-4 mb-3 rotate-1 text-7xl md:text-[10rem] leading-[0.8]">Yorkshire Roots.</span>
+<span class="block bg-on-background text-surface px-6 py-4 mb-3 -rotate-1 text-7xl md:text-[10rem] leading-[0.8]">Bethesda HQ.</span>
+<span class="block bg-primary-container text-on-background px-6 py-4 rotate-1 text-5xl md:text-8xl">Remote Execution.</span></h1>
+</div>
+<!-- Portrait & Textures Area -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 w-full items-center mt-12">
+<div class="md:col-span-5 relative rotate-2 group">
+<div class="absolute inset-0 bg-primary opacity-20 group-hover:opacity-0 transition-opacity"></div>
+<img alt="Grainy black and white portrait" class="w-full grayscale contrast-150 brightness-90 border-4 border-on-background shadow-[12px_12px_0px_0px_rgba(45,47,44,1)]" data-alt="Grainy high-contrast black and white portrait of a man with halftone dot pattern overlay and slight digital distortion" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAo_NSxCB61_nGQ-qWbBWT16W0ni8Ld422Zc5cnc2IZS1ucArMKuZhQ4jZBNbphrp4tYwKswQo4k1OT3quTpY1jbdUBsMU6hmXbLJV2DtOLgO7S2lx3F6P1_vDe5bqtb-qWWvlCazRYuhVro7HMPv7vYMpTgHmRfF-SM9DIqQ4sp6MYexiD0a0xnSjKtCZv9yQqmQTyM75QsQD7ud4XmBGvohlmW105uqwhXkIzBw4B4Ox_OnbUvy9RleFFdmfXYOI4VxlVuFBAxI"/>
+<div class="absolute -bottom-4 -right-4 bg-secondary text-surface px-6 py-2 font-headline font-bold uppercase -rotate-3 border-2 border-on-background">
+                        SIMON_V1
+                    </div>
+</div>
+<div class="md:col-span-7 flex flex-col gap-6 text-left">
+<div class="bg-surface-container-high p-8 border-l-8 border-primary relative -rotate-1 border-4 border-on-background shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+<div class="absolute top-0 right-0 w-16 h-8 bg-primary-fixed opacity-70 tape-strip -translate-y-4 rotate-12"></div>
+<h2 class="font-headline font-extrabold text-4xl mb-4 italic uppercase tracking-tight">VERSIONS OF TRUTH:</h2>
+<ul class="font-headline font-bold text-2xl space-y-2 uppercase"><li class="flex justify-between border-b border-on-background/20 pb-1">
+<span class="opacity-60">01.</span>
+<span class="font-black">REACT / NEXT.JS</span>
+<span class="opacity-60 text-sm align-bottom">[33RPM]</span>
+</li>
+<li class="flex justify-between border-b border-on-background/20 pb-1">
+<span class="opacity-60">02.</span>
+<span class="font-black">VUE / NUXT</span>
+<span class="opacity-60 text-sm align-bottom">[STEREO]</span>
+</li>
+<li class="flex justify-between border-b border-on-background/20 pb-1">
+<span class="opacity-60">03.</span>
+<span class="font-black">ASTRO</span>
+<span class="opacity-60 text-sm align-bottom">[HI-FI]</span>
+</li>
+<li class="flex justify-between border-b border-on-background/20 pb-1">
+<span class="opacity-60">04.</span>
+<span class="font-black">HEADLESS WP</span>
+<span class="opacity-60 text-sm align-bottom">[XEROX]</span>
+</li></ul>
+</div>
+<div class="bg-on-background text-surface-container p-6 relative rotate-1 shadow-[8px_8px_0px_0px_rgba(95,95,0,1)]">
+<p class="font-body italic text-xl leading-relaxed">
+                            "The web is a xerox of a xerox. I prefer the original grain. Code is the guitar string—tension creates the note, friction creates the soul."
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Jamstack Manifesto Section -->
+<section class="mt-24 w-full relative z-10">
+<div class="bg-surface border-4 border-on-background p-1 md:p-2 rotate-[-0.5deg] shadow-[16px_16px_0px_0px_rgba(45,47,44,1)]">
+<div class="border-2 border-on-background bg-white p-8 md:p-12 relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-2 bg-on-background opacity-10 manual-dots"></div>
+<header class="border-b-4 border-on-background pb-6 mb-8 flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
+<div>
+<h2 class="font-headline font-black text-4xl md:text-6xl uppercase tracking-tighter leading-none">ARTIFACT_INDEX:</h2>
+<h3 class="font-headline font-bold text-2xl md:text-4xl uppercase tracking-tighter text-primary">THE JAMSTACK MANIFESTO</h3>
+</div>
+<div class="text-right">
+<span class="block font-headline font-black text-sm uppercase bg-on-background text-white px-2 py-1 rotate-2">DOC_REF: 404-GRAIN</span>
+</div>
+</header>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 relative">
+<div class="space-y-8">
+<div>
+<h4 class="font-headline font-black text-xl uppercase mb-2 border-b-2 border-on-background inline-block">PHILOSOPHY:</h4>
+<p class="font-body text-2xl italic leading-tight">Build for the user, not the framework.</p>
+</div>
+<div>
+<h4 class="font-headline font-black text-xl uppercase mb-4 border-b-2 border-on-background inline-block">BENEFITS:</h4>
+<ul class="font-headline font-bold text-lg space-y-2 uppercase">
+<li class="flex items-center gap-3"><span class="w-2 h-2 bg-primary"></span> Speed is a feature.</li>
+<li class="flex items-center gap-3"><span class="w-2 h-2 bg-primary"></span> Security is non-negotiable.</li>
+<li class="flex items-center gap-3"><span class="w-2 h-2 bg-primary"></span> Scalability is default.</li>
+</ul>
+</div>
+</div>
+<div class="bg-surface-container-high p-6 border-4 border-on-background halftone relative transform rotate-1">
+<h4 class="font-headline font-black text-xl uppercase mb-4">EXPERTISE_LOG:</h4>
+<div class="space-y-4 font-headline font-bold text-lg uppercase tracking-tight">
+<div class="flex justify-between items-center border-b border-on-background/30 pb-1">
+<span>Native Web Components</span>
+<span class="text-xs">[CORE]</span>
+</div>
+<div class="flex justify-between items-center border-b border-on-background/30 pb-1">
+<span>SSG (Astro, 11ty)</span>
+<span class="text-xs">[STATIC]</span>
+</div>
+<div class="flex justify-between items-center border-b border-on-background/30 pb-1">
+<span>Headless CMS</span>
+<span class="text-xs">[DATA]</span>
+</div>
+</div>
+</div>
+</div>
+<footer class="mt-12 pt-8 border-t-2 border-on-background border-dashed flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="font-body italic text-xl max-w-sm">"The web is a xerox of a xerox. I prefer the original grain."</p>
+<div class="flex items-center gap-2">
+<div class="w-12 h-12 bg-on-background rounded-full flex items-center justify-center text-white font-headline font-black text-xs -rotate-12">SIG</div>
+<div class="h-[2px] w-32 bg-on-background opacity-40"></div>
+</div>
+</footer>
+<!-- Xerox artifacts -->
+<div class="absolute -bottom-4 -right-4 w-32 h-32 bg-primary-container halftone -z-10 opacity-30 rotate-12"></div>
+</div>
+</div>
+</section>
+<!-- Background Decorative Element: Guitar Strings Texture -->
+<div class="absolute top-1/2 left-0 w-full h-96 -translate-y-1/2 -z-20 opacity-10 pointer-events-none">
+<img alt="abstract guitar strings" class="w-full h-full object-cover grayscale blur-[2px]" data-alt="extreme close up of rusted steel guitar strings showing metallic texture and parallel lines in high contrast black and white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCM_RKiOxOV94N7Jf0sJ9yp-BDZOQ6_yeOgr65fGpfhwg2yYnNNCwSQ9_J8KAB2tk55kpsgANAgAErtS-qgYROYG3Y3ZjtKQV51uJdDVWO1KBsbPmiSDvft6CECLlR4See2tlAw-XcX_v-f5luj2GmiwiTYIqx_3DgJ8B5O6qj1fUabQXeYkkMC-h-qMXxVS7WjsF5iMQX5f1soMtcVQlG19ViJHMWmOKDlLy5KKetus694K0jomOCzVpCvfrXge5mf0RSc2o5JTpo"/>
+</div>
+<!-- Call to Action / Manifest Link -->
+<div class="mt-24 w-full border-t-4 border-on-background pt-12 flex flex-col md:flex-row justify-between items-end gap-8">
+<div class="max-w-md">
+<span class="font-headline font-black text-xs uppercase tracking-[0.3em] text-secondary block mb-2">IDENTITY_MARK</span>
+<p class="font-body text-2xl font-medium leading-tight">
+                    Independent developer crafting high-performance digital artifacts since the analog era. 
+                </p>
+</div>
+<a class="font-headline font-black text-4xl uppercase underline decoration-8 underline-offset-8 decoration-primary-container hover:bg-primary-container transition-colors p-2" href="#">
+    ARTIFACT_INDEX
+</a>
+</div>
+</main>
+<!-- Footer -->
+<footer class="relative w-full py-12 border-t-8 border-black overflow-hidden bg-neutral-100 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] bg-repeat">
+<div class="flex flex-col md:flex-row justify-between items-center px-8 gap-4 w-full">
+<p class="font-['Space_Grotesk'] font-bold text-sm tracking-[0.2em] text-neutral-900 uppercase">
+                ©2024 DEV_NULL / BETHESDA, MD / REMOTE
+            </p>
+<div class="flex gap-8 items-center">
+<a class="font-['Space_Grotesk'] font-bold text-sm tracking-[0.2em] text-neutral-600 underline decoration-dotted hover:invert transition-all duration-75 active:skew-y-1" href="#">GITHUB</a>
+<a class="font-['Space_Grotesk'] font-bold text-sm tracking-[0.2em] text-neutral-600 underline decoration-dotted hover:invert transition-all duration-75 active:skew-y-1" href="#">LINKEDIN</a><a class="font-['Space_Grotesk'] font-bold text-sm tracking-[0.2em] text-black font-black hover:invert transition-all duration-75 active:skew-y-1" href="#">READ_ME</a>
+</div>
+</div>
+<!-- Subtle Bethesda Marker -->
+<div class="absolute bottom-2 right-4 opacity-30 select-none pointer-events-none font-headline font-black text-6xl tracking-tighter">
+            38.9807° N, 77.1003° W
+        </div>
+</footer>
+<!-- Decorative "Tape" Marks -->
+<div class="fixed top-24 right-12 w-32 h-8 bg-primary opacity-60 tape-strip rotate-45 z-40 pointer-events-none"></div>
+<div class="fixed bottom-12 left-12 w-24 h-10 bg-secondary opacity-40 tape-strip -rotate-12 z-40 pointer-events-none"></div>
+</body></html>

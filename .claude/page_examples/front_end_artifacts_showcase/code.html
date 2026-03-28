@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&amp;family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary-fixed-variant": "#646400",
+              "surface-dim": "#d3d5cf",
+              "on-tertiary-fixed": "#505050",
+              "on-background": "#2d2f2c",
+              "on-surface-variant": "#5a5c58",
+              "surface-tint": "#5f5f00",
+              "primary-fixed-dim": "#e4e400",
+              "outline-variant": "#adada9",
+              "surface-variant": "#dcddd7",
+              "surface-container-low": "#f1f1ec",
+              "tertiary": "#5b5b5b",
+              "on-error": "#ffefec",
+              "surface-bright": "#f7f7f2",
+              "surface-container": "#e8e9e3",
+              "on-tertiary": "#f3f3f3",
+              "tertiary-fixed": "#ffffff",
+              "primary": "#5f5f00",
+              "on-primary-container": "#5a5a00",
+              "tertiary-fixed-dim": "#f1f1f1",
+              "on-secondary-container": "#8d0058",
+              "inverse-surface": "#0d0f0c",
+              "surface-container-high": "#e2e3dd",
+              "on-surface": "#2d2f2c",
+              "inverse-on-surface": "#9c9d99",
+              "primary-container": "#f3f300",
+              "on-primary": "#fbfb00",
+              "surface": "#f7f7f2",
+              "inverse-primary": "#ffff00",
+              "background": "#f7f7f2",
+              "surface-container-highest": "#dcddd7",
+              "secondary-fixed-dim": "#ffabce",
+              "outline": "#767773",
+              "on-secondary-fixed": "#6a0041",
+              "on-error-container": "#520c00",
+              "on-secondary-fixed-variant": "#9a1062",
+              "on-secondary": "#ffeff3",
+              "surface-container-lowest": "#ffffff",
+              "secondary": "#a8216e",
+              "tertiary-container": "#ffffff",
+              "primary-dim": "#525200",
+              "on-primary-fixed": "#474700",
+              "on-tertiary-fixed-variant": "#6d6d6d",
+              "error-dim": "#b92902",
+              "on-tertiary-container": "#626262",
+              "tertiary-dim": "#4f4f4f",
+              "error-container": "#f95630",
+              "secondary-container": "#ffc0d9",
+              "error": "#b02500",
+              "primary-fixed": "#f3f300",
+              "secondary-fixed": "#ffc0d9",
+              "secondary-dim": "#980f61"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Newsreader"],
+              "label": ["Space Grotesk"]
+            },
+            borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .xerox-filter {
+            filter: grayscale(1) contrast(300%) brightness(80%);
+            mix-blend-mode: multiply
+        }
+        .grain-overlay {
+            background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuDuLR2JTssx3RFFbvi2V7ULoZS2tNqTzzAiHV3qVPlpPxwnaOQHjFMx_JjGsWMADZC68DUQvliC6rivlLKvddhUpE9MqoQC4X1DoaP74IupnCsWVJPqiXCcaTAplEk0M0STdsCuFei-o30rkW2VnUt6Gfh6DqTSoUYY7kyrBoVp8G0CG90KXARBnpMpMJi3HiTSsk8l59_jjHHt1C7_hQZnK-z5VcbHApYj-SaIEAIcaW5g8v7JHYi4nYNufB6szjjlB9yqn75rZ-w);
+            opacity: 0.05;
+            pointer-events: none
+        }
+        .halftone-bg {
+            background-image: radial-gradient(#2d2f2c 1px, transparent 0);
+            background-size: 4px 4px;
+            opacity: 0.1
+        }
+        .ransom-note span {
+            display: inline-block;
+            padding: 0 4px;
+            margin: 0 -2px
+        }
+        .ransom-note span:nth-child(odd) {
+            background: #2d2f2c;
+            color: #ff0;
+            transform: rotate(-2deg) translatey(-2px)
+        }
+        .ransom-note span:nth-child(even) {
+            background: #f3f300;
+            color: #2d2f2c;
+            transform: rotate(3deg) translatey(2px);
+            border: 2px solid #2d2f2c
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-inverse-primary selection:text-black min-h-screen overflow-x-hidden">
+<div class="fixed inset-0 grain-overlay z-[100]"></div>
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 h-16 transform -rotate-1 origin-left bg-neutral-900 border-b-4 border-double border-yellow-400 drop-shadow-[8px_8px_0px_rgba(0,0,0,1)] flex justify-between items-center px-6 py-2 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]">
+<div class="text-yellow-400 font-black italic bg-neutral-900 px-4 py-1 -rotate-2 border-2 border-yellow-400 font-['Space_Grotesk'] uppercase tracking-tighter text-2xl skew-x-[-6deg]">
+        PORTFOLIO_V2.0
+    </div>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="font-['Space_Grotesk'] uppercase tracking-tighter text-2xl skew-x-[-6deg] underline decoration-4 underline-offset-4 text-white bg-yellow-400 px-2 hover:-rotate-3 hover:scale-110 duration-75 active:translate-y-1 active:shadow-none" href="#">WORK</a>
+<a class="font-['Space_Grotesk'] uppercase tracking-tighter text-2xl skew-x-[-6deg] text-yellow-400 hover:text-white transition-colors hover:-rotate-3 hover:scale-110 duration-75 active:translate-y-1 active:shadow-none" href="#">ARCHIVE</a>
+</nav>
+<button class="text-yellow-400 p-2 hover:-rotate-3 hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+</header>
+<main class="pt-32 pb-24 px-4 md:px-12 max-w-7xl mx-auto">
+<!-- Hero Section -->
+<section class="relative mb-32">
+<h1 class="font-headline font-black text-6xl md:text-9xl uppercase tracking-tighter leading-none ransom-note mb-12">
+<span>A</span><span>N</span><span>A</span><span>R</span><span>C</span><span>H</span><span>Y</span>
+<span>I</span><span>N</span>
+<span>T</span><span>H</span><span>E</span>
+<span>F</span><span>R</span><span>O</span><span>N</span><span>T</span><span>-</span><span>E</span><span>N</span><span>D</span>
+</h1>
+<div class="flex flex-wrap gap-4 mb-20">
+<div class="bg-primary text-on-primary px-6 py-2 rotate-[-3deg] font-label font-bold text-xl uppercase border-2 border-on-surface shadow-[4px_4px_0px_#2d2f2c]">ANIMATION</div>
+<div class="bg-secondary text-on-secondary px-6 py-2 rotate-[2deg] font-label font-bold text-xl uppercase border-2 border-on-surface shadow-[4px_4px_0px_#2d2f2c]">UX/UI</div>
+<div class="bg-surface-container-highest text-on-surface px-6 py-2 rotate-[-1deg] font-label font-bold text-xl uppercase border-2 border-on-surface shadow-[4px_4px_0px_#2d2f2c]">OPTIMIZATION</div>
+</div>
+<div class="absolute top-0 right-0 -z-10 opacity-20 hidden lg:block transform rotate-12">
+<div class="w-96 h-96 halftone-bg border-4 border-on-surface"></div>
+</div>
+</section>
+<!-- Projects Bento Grid: FRONT-END ARTIFACTS -->
+<h2 class="font-headline font-black text-4xl mb-12 uppercase tracking-tighter border-b-4 border-on-surface inline-block">FRONT-END ARTIFACTS // CODE_AS_ART</h2>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+<!-- Project Card 1: Nardello & Co -->
+<div class="md:col-span-7 bg-surface-container-low p-2 border-2 border-on-surface transform rotate-[-1deg] hover:rotate-0 transition-transform duration-150 group">
+<div class="relative overflow-hidden aspect-video bg-black">
+<img alt="Nardello &amp; Co Investigations Website Artifact" class="w-full h-full object-cover xerox-filter group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOWnZtVegKlCkrz_SQnBCeJ8PxVjG6VSZQ6IustzOwv00ZDcZ2IDRoaCzxFj8ismzUMr7Sb8c8Do7MG6LmhCwEXi8kJz1TQL9XXuvnZJ7aYPGX-findKNZ_46Mklhcrgk5jIJqjcglN1zGRO3sxA6Klf1YgyeeHTc1LhLtxjnQNUKT4MXOYT22Oda-NPHuZmAW5aileEmREBiwp5T2y2GXc18-x_QmVtFD0UhqyDKOlXib3BsP_NTK_IbA0W8l7ws74gN6uJs11lo"/>
+<div class="absolute inset-0 bg-primary opacity-20 mix-blend-overlay"></div>
+</div>
+<div class="p-6 bg-surface-bright mt-2 border-t-2 border-on-surface relative">
+<div class="absolute -top-4 -right-4 bg-secondary text-on-secondary px-4 py-1 rotate-6 font-label font-black text-sm">ART_001</div>
+<h3 class="font-headline font-extrabold text-3xl uppercase mb-4">NARDELLO &amp; CO</h3>
+<p class="font-body text-lg italic mb-6 text-on-surface-variant">Engineering trust for a leading global investigations firm. A study in high-stakes information architecture and refined typography.</p>
+<div class="flex justify-between items-end">
+<span class="font-label text-xs tracking-widest text-outline uppercase font-bold">INVESTIGATION_UI</span>
+<button class="bg-on-surface text-surface px-8 py-3 font-label font-black uppercase hover:-rotate-2 transition-transform shadow-[4px_4px_0px_#f3f300]">DECRYPT_DOCS</button>
+</div>
+</div>
+</div>
+<!-- Project Card 2: Meta Codec Avatars -->
+<div class="md:col-span-5 bg-surface-container-high p-2 border-2 border-on-surface transform rotate-[2deg] hover:rotate-0 transition-transform duration-150 group mt-12 md:mt-24">
+<div class="relative overflow-hidden aspect-square bg-neutral-800">
+<img alt="Meta Codec Avatars Tech Artifact" class="w-full h-full object-cover xerox-filter group-hover:brightness-125 transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOSLouOpLNQqzOVXIGs-7_PVfTOGuyYze8MwqAO4XaL2Lt4doPvR5k16nYV52yw4fQFuZeO4vn6_1px_zJ5dIJh2oKOY-YX5UVJzZH5WdYnnu8AGlviB0HMRtbiJ1WPFz_3LYtETmJWESom6USwJ4cyn1i_b72hvwOHFw8YdLb7pXYwKSXSjXCHtUFpzIfLwrxkoZ4HR-SIyaG7h2Zv1oWl8vvlfHFJGsK0HwMhY2-bTBQ9gdxlO-bTLdeX3WFTkU_6gu5AZSVfIk"/>
+<div class="absolute inset-0 bg-secondary opacity-10 mix-blend-color"></div>
+</div>
+<div class="p-6 bg-surface mt-2 border-t-2 border-on-surface">
+<h3 class="font-headline font-extrabold text-2xl uppercase mb-2 italic">CODEC_AVATARS</h3>
+<p class="font-body text-md mb-4 leading-snug">Visualizing the future of human connection. Interfacing with Meta's emerging telepresence technology.</p>
+<button class="w-full border-2 border-on-surface p-2 font-label font-bold uppercase hover:bg-on-surface hover:text-surface transition-colors">INITIALIZE_SYNC</button>
+</div>
+</div>
+<!-- Text Scrap -->
+<div class="md:col-span-4 bg-primary-container p-8 border-2 border-on-surface transform rotate-[-3deg] shadow-[12px_12px_0px_rgba(0,0,0,0.1)]">
+<span class="material-symbols-outlined text-4xl mb-4">format_quote</span>
+<p class="font-body text-xl font-medium leading-tight text-on-primary-container">"The screen is not a window, it's a surface for collision. We don't code features, we code experiences that leave a mark."</p>
+<div class="mt-6 flex items-center gap-2">
+<div class="h-[2px] w-12 bg-on-primary-container"></div>
+<span class="font-label text-sm font-black uppercase">THE_ARTIFACT_MANIFESTO</span>
+</div>
+</div>
+<!-- Project Card 3: Kilpatrick -->
+<div class="md:col-span-8 bg-surface-container-highest p-2 border-2 border-on-surface transform rotate-[0.5deg] hover:rotate-[-1deg] transition-transform duration-150 group">
+<div class="p-4 flex flex-col md:flex-row gap-6">
+<div class="w-full md:w-1/2 aspect-video bg-black overflow-hidden border-2 border-on-surface">
+<img alt="Kilpatrick Law Firm Website Artifact" class="w-full h-full object-cover xerox-filter group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBr9Q1jZTL8t946c45O9n_O9nPrnSCcunWCm9KCKANE6NlhFcelg66AgP-8sVLqrUUJeuAkMsKX8TA9kAJR1_5C5pvpogpupjCLLomd_soePDaFAqeYFdgcf1r6UPc38Q1X9L3BaMcY7Ssp7XeHBSWQ2nwQ1WfJ4wSvs2Qo38eUHL6rW2TWUyryA1tAy0-F35IIIhQ0EYPbJoOmpeTQOZeSjVecnpc9Bqj4grV7pPItVIwL4rT8rxvZ389wHBXlsLCSqgM2qalP0Dc"/>
+</div>
+<div class="w-full md:w-1/2 flex flex-col justify-between py-2">
+<div>
+<div class="bg-on-surface text-surface inline-block px-3 py-1 font-label text-xs uppercase mb-4 tracking-widest">ART_003</div>
+<h3 class="font-headline font-black text-4xl uppercase leading-none mb-4">KILPATRICK</h3>
+<p class="font-body text-lg text-on-surface-variant">Modernizing the legacy of legal excellence. Clean layouts meet brutalist-inspired navigational performance.</p>
+</div>
+<div class="mt-6">
+<a class="inline-flex items-center gap-4 group/link" href="#">
+<span class="font-label font-black uppercase text-xl group-hover/link:underline">VIEW_STRUCTURE</span>
+<span class="material-symbols-outlined bg-inverse-primary p-2 border-2 border-on-surface group-hover/link:translate-x-2 transition-transform">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Call to Action Section -->
+<section class="mt-32 relative py-20 px-8 bg-on-surface text-surface overflow-hidden">
+<div class="absolute inset-0 halftone-bg opacity-30"></div>
+<div class="relative z-10 text-center max-w-2xl mx-auto">
+<h2 class="font-headline font-black text-5xl md:text-7xl uppercase italic tracking-tighter mb-8 -rotate-1">WANT_TO_BREAK_THINGS?</h2>
+<div class="flex flex-col sm:flex-row gap-6 justify-center">
+<a class="bg-primary-fixed text-on-primary-fixed px-12 py-6 font-label font-black text-3xl uppercase border-4 border-surface shadow-[8px_8px_0px_#a8216e] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all flex items-center justify-center -rotate-1" href="#">LINKEDIN</a>
+</div>
+</div>
+<!-- Decorative Tape -->
+<div class="absolute top-4 left-4 w-32 h-10 bg-secondary opacity-50 -rotate-45"></div>
+<div class="absolute bottom-4 right-4 w-48 h-12 bg-primary opacity-50 rotate-12"></div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="relative w-full py-12 border-t-8 border-black dark:border-yellow-400 overflow-hidden bg-neutral-100 dark:bg-neutral-900 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] bg-repeat">
+<div class="flex flex-col md:flex-row justify-between items-center px-8 gap-4 w-full relative z-10">
+<div class="font-['Space_Grotesk'] font-bold text-sm tracking-[0.2em] text-neutral-900 dark:text-white uppercase">
+            ©2024 DEV_NULL / BETHESDA, MD / REMOTE
+        </div>
+<div class="flex gap-12">
+<a class="font-['Space_Grotesk'] font-bold text-sm tracking-[0.2em] text-neutral-600 dark:text-neutral-400 underline decoration-dotted hover:invert transition-all duration-75 active:skew-y-1" href="#">GITHUB</a>
+<a class="font-['Space_Grotesk'] font-bold text-sm tracking-[0.2em] text-neutral-600 dark:text-neutral-400 underline decoration-dotted hover:invert transition-all duration-75 active:skew-y-1" href="#">READ_ME</a>
+</div>
+</div>
+<!-- Decorative elements to reinforce the zine feel -->
+<div class="absolute -bottom-4 left-1/2 -translate-x-1/2 opacity-10 pointer-events-none">
+<span class="text-[200px] font-black leading-none select-none">BRUTAL</span>
+</div>
+</footer>
+</body></html>
