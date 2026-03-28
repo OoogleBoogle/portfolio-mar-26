@@ -1,0 +1,154 @@
+---
+interface Props {
+  activePage?: 'home' | 'work' | 'archive';
+}
+const { activePage } = Astro.props;
+---
+
+<div class="header-wrap">
+  <header class="site-nav">
+    <div class="site-nav__logo">PORTFOLIO_V2.0</div>
+
+    <nav class="site-nav__links">
+      <a
+        href="/work"
+        class="site-nav__link"
+        class:list={[{ 'site-nav__link--active': activePage === 'work' }]}
+      >WORK</a>
+      <a
+        href="/archive"
+        class="site-nav__link"
+        class:list={[{ 'site-nav__link--active': activePage === 'archive' }]}
+      >ARCHIVE</a>
+    </nav>
+  <!--
+    <button class="site-nav__menu-btn" aria-label="Open menu">
+      <span class="material-symbols-outlined">menu</span>
+    </button> -->
+  </header>
+</div>
+
+<style>
+  .header-wrap {
+    position: fixed;
+    inset: 0;
+    padding-top: 15px;
+    width: 100%;
+    height: 4rem;
+    z-index: 50;
+    background: #000;
+    /* isolation: isolate;
+    z-index: -1; */
+  }
+  .site-nav {
+    /* position: fixed; */
+    top: 0;
+    width: 100%;
+
+    z-index: 50;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1.5rem;
+    transform: rotate(-1deg);
+    transform-origin: left center;
+
+    background-color: var(--color-inverse-surface);
+    background-image: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+    border-bottom: 4px double var(--color-primary-container);
+    filter: drop-shadow(8px 8px 0px rgba(0, 0, 0, 1));
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      /* border: 2px solid var(--color-primary-container); */
+      pointer-events: none;
+    }
+  }
+
+  /* ── Logo ────────────────────────────────────────────────── */
+
+  .site-nav__logo {
+    font-family: var(--font-headline);
+    font-weight: 900;
+    font-style: italic;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: -0.05em;
+    color: var(--color-primary-container);
+    background-color: var(--color-inverse-surface);
+    border: 2px solid var(--color-primary-container);
+    padding: 0.25rem 1rem;
+    transform: rotate(-2deg) skewX(-6deg);
+    display: inline-block;
+  }
+
+  /* ── Nav links ───────────────────────────────────────────── */
+
+  .site-nav__links {
+    display: none;
+    gap: 2rem;
+    align-items: center;
+
+    @media (min-width: 768px) {
+      display: flex;
+      flex-basis: 50%;
+    }
+  }
+
+  .site-nav__link {
+    font-family: var(--font-headline);
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: -0.05em;
+    text-decoration: none;
+    color: var(--color-primary-container);
+    display: inline-block;
+    transform: skewX(-6deg);
+    transition: transform 75ms, color 75ms;
+
+    &:hover {
+      color: #ffffff;
+      transform: skewX(-6deg) rotate(-3deg) scale(1.1);
+    }
+
+    &:active {
+      translate: 0 2px;
+    }
+  }
+
+  .site-nav__link--active {
+    color: #ffffff;
+    background-color: var(--color-primary-container);
+    padding: 0 0.5rem;
+    text-decoration: underline;
+    text-decoration-thickness: 4px;
+    text-underline-offset: 4px;
+  }
+
+  /* ── Menu button ───────────────────────────────────────────
+
+  .site-nav__menu-btn {
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    color: var(--color-primary-container);
+    display: inline-flex;
+    transition: transform 75ms;
+
+    .material-symbols-outlined {
+      font-size: 2rem;
+    }
+
+    &:hover {
+      transform: rotate(-3deg) scale(1.1);
+    }
+
+    &:active {
+      translate: 0 2px;
+    }
+  } */
+</style>

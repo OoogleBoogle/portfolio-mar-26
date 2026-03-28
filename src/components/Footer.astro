@@ -1,0 +1,78 @@
+---
+---
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <p class="site-footer__copyright">©2024 DEV_NULL / BETHESDA, MD / REMOTE</p>
+    <nav class="site-footer__links" aria-label="Social links">
+      <a href="#" class="site-footer__link">GITHUB</a>
+      <a href="#" class="site-footer__link">LINKEDIN</a>
+      <a href="#" class="site-footer__link">READ_ME</a>
+    </nav>
+  </div>
+  <!-- Per-page decorative element (stamp, coordinates, etc.) -->
+  <slot />
+</footer>
+
+<style>
+  .site-footer {
+    position: relative;
+    width: 100%;
+    padding: 3rem 0;
+    overflow: hidden;
+    border-top: 8px solid var(--color-on-surface);
+    background-color: var(--color-surface-container-low);
+    background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+    background-repeat: repeat;
+  }
+
+  .site-footer__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 2rem;
+    width: 100%;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  .site-footer__copyright {
+    font-family: var(--font-label);
+    font-weight: 700;
+    font-size: 0.875rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-on-surface);
+    margin: 0;
+  }
+
+  .site-footer__links {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .site-footer__link {
+    font-family: var(--font-label);
+    font-weight: 700;
+    font-size: 0.875rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-on-surface-variant);
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    transition: filter 75ms;
+
+    &:hover {
+      filter: invert(1);
+    }
+
+    &:active {
+      transform: skewY(1deg);
+    }
+  }
+</style>

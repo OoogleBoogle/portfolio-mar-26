@@ -14,7 +14,11 @@ pnpm preview    # Preview production build locally
 
 ## Architecture
 
-This is an **Astro 6** static site (personal portfolio). The project uses pnpm and requires Node >=22.12.0.
+This is an **Astro 6** static site (personal portfolio). The project uses pnpm
+and requires Node >=22.12.0.
+
+Always refer to the latest docs from the context7 mcp server, or use
+https://docs.astro.build/en/getting-started/ if not available.
 
 - `src/pages/` — File-based routing; each `.astro` file becomes a route
 - `public/` — Static assets served as-is
@@ -32,5 +36,6 @@ from the ideas set here.
 ## Initial examples.
 
 Created in Google Stitch, the designs can be found in `.claude/page_examples`.
+Each directory represents a different page.
 The code for each page uses tailwind, which i would like to avoid. Therefore
 be sure to rewrite these rules as CSS utilizing the most modern techniques.
