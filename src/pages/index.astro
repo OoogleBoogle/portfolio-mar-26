@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import BigCta from '../components/big-cta.astro';
 ---
 
 <Layout title="Simon Attfield — Portfolio" activePage="home">
@@ -45,7 +46,9 @@ import Layout from '../layouts/Layout.astro';
               </div>
 
               <div class="hero__cta-wrap">
-                <a href="#" class="hero__cta">LINKEDIN</a>
+                <BigCta type="secondary" text="LINKEDIN" href="https://linkedin.com/in/simonattfield" />
+                <BigCta type="secondary" text="WORK" href="/work" />
+                <BigCta type="secondary" text="ABOUT" href="/about" />
               </div>
             </div>
           </div>
