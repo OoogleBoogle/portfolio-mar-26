@@ -13,10 +13,9 @@ description: You are writing or reviewing copy for Simon Attfield's personal por
 
 ## Audience
 
-1. **Employers / recruiters** — they need to know: can this person do the job, and are they sane to work with?
-2. **Dev community peers** — they need to feel: I respect this person's taste and judgment.
+**Dev community peers** — they need to feel: I respect this person's taste and judgment.
 
-Both groups are smart and allergic to posturing. Write for them accordingly.
+They are smart and allergic to posturing. Write for them accordingly.
 
 ---
 
