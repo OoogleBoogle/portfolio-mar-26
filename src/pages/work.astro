@@ -23,13 +23,12 @@ import BigCta from '../components/big-cta.astro';
       <span class="work-tag work-tag--secondary">UX/UI</span>
       <span class="work-tag work-tag--neutral">OPTIMIZATION</span>
     </div>
-
-    <!-- Halftone decoration, hidden on small screens -->
-    <div class="work-hero__halftone" aria-hidden="true"></div>
   </section>
 
   <!-- Artifacts Grid -->
   <section class="artifacts">
+    <!-- Halftone decoration, hidden on small screens -->
+    <div class="work-hero__halftone" aria-hidden="true"></div>
     <h2 class="artifacts__heading">FRONT-END ARTIFACTS // CODE_AS_ART</h2>
 
     <div class="artifacts__grid">
@@ -37,19 +36,22 @@ import BigCta from '../components/big-cta.astro';
       <!-- Card 1: Nardello & Co — large (7 cols) -->
       <article class="artifact-card artifact-card--nardello">
         <div class="artifact-card__img-wrap">
-          <img
-            srcset="/work/nardello/screen.jpg 1x, /work/nardello/screen@2x.jpg 2x"
-            src="/work/nardello.jpg"
-            alt="Nardello & Co Investigations Website"
-            class="artifact-card__img"
-          />
+          <video loop muted playsinline class="artifact-card__img" poster="/work/nardello/screen.jpg">
+            <source src="/work/nardello/nardello-scroll.mp4" type="video/mp4">
+            <img
+              srcset="/work/nardello/screen.jpg 1x, /work/nardello/screen@2x.jpg 2x"
+              src="/work/nardello/screen.jpg"
+              alt="Nardello & Co Investigations Website"
+              class="artifact-card__img"
+            />
+          </video>
           <div class="artifact-card__img-tint"></div>
         </div>
         <div class="artifact-card__body artifact-card__body--nardello">
           <div class="artifact-card__art-tag">ART_001</div>
           <h3 class="artifact-card__title">NARDELLO &amp; CO</h3>
           <p class="artifact-card__desc">
-            Engineering trust for a leading global investigations firm. A study in high-stakes information architecture and refined typography.
+            Built the public-facing site for a global investigations firm. Quiet, fast, no drama.
           </p>
           <div class="artifact-card__footer">
             <span class="artifact-card__label">INVESTIGATION_UI</span>
@@ -61,18 +63,21 @@ import BigCta from '../components/big-cta.astro';
       <!-- Card 2: Smashcreate — smaller (5 cols), offset down -->
       <article class="artifact-card artifact-card--codec">
         <div class="artifact-card__img-wrap artifact-card__img-wrap--square">
-          <img
-            srcset="/work/smashcreate/screen.jpg 1x, /work/smashcreate/screen@2x.jpg 2x"
-            src="/work/smashcreate/screen.jpg"
-            alt="Meta Codec Avatars"
-            class="artifact-card__img"
-          />
+          <video loop muted playsinline class="artifact-card__img" poster="/work/smashcreate/screen.jpg">
+            <source src="/work/smashcreate/smashcreate-scroll.mp4" type="video/mp4">
+            <img
+              srcset="/work/smashcreate/screen.jpg 1x, /work/smashcreate/screen@2x.jpg 2x"
+              src="/work/smashcreate/screen.jpg"
+              alt="Meta Codec Avatars"
+              class="artifact-card__img"
+            />
+          </video>
           <div class="artifact-card__img-tint artifact-card__img-tint--secondary"></div>
         </div>
         <div class="artifact-card__body">
-          <h3 class="artifact-card__title artifact-card__title--italic">SMASHCREATE</h3>
+          <h3 class="artifact-card__title artifact-card__title--italic">SMASHCREATE.DESIGN</h3>
           <p class="artifact-card__desc">
-            Agency-quality brand identity for startups. On-demand, fixed price, zero runway wasted.
+            Brand identity at agency quality, without the agency overhead.
           </p>
           <a href="https://www.smashcreate.design/" target="_blank" rel="noopener noreferrer" class="artifact-card__cta artifact-card__cta--outline">INITIALIZE_SYNC</a>
         </div>
@@ -82,11 +87,10 @@ import BigCta from '../components/big-cta.astro';
       <aside class="artifact-quote">
         <span class="material-symbols-outlined artifact-quote__icon" style="font-variation-settings: 'FILL' 1">format_quote</span>
         <p class="artifact-quote__text">
-          "The screen is not a window, it's a surface for collision. We don't code features, we code experiences that leave a mark."
+          "Three clients. Three very different problems. One bar."
         </p>
         <div class="artifact-quote__attribution">
           <div class="artifact-quote__rule"></div>
-          <span class="artifact-quote__author">THE_ARTIFACT_MANIFESTO</span>
         </div>
       </aside>
 
@@ -94,19 +98,21 @@ import BigCta from '../components/big-cta.astro';
       <article class="artifact-card artifact-card--kilpatrick">
         <div class="artifact-card--kilpatrick__inner">
           <div class="artifact-card--kilpatrick__img-wrap">
-            <img
-              srcset="/work/kilpatrick/screen.jpg 1x,
-              /work/kilpatrick/screen@2x.jpg 2x"
-              src="/work/kilpatrick/screen.jpg"
-              alt="Kilpatrick Law Firm Website"
-              class="artifact-card__img"
-            />
+            <video loop muted playsinline class="artifact-card__img" poster="/work/kilpatrick/screen.jpg">
+              <source src="/work/kilpatrick/ktslaw-scroll.mp4" type="video/mp4">
+              <img
+                srcset="/work/kilpatrick/screen.jpg 1x,
+                /work/kilpatrick/screen@2x.jpg 2x"
+                src="/work/kilpatrick/screen.jpg"
+                alt="Kilpatrick Law Firm Website"
+              />
+            </video>
           </div>
           <div class="artifact-card--kilpatrick__content">
             <div class="artifact-card__art-tag artifact-card__art-tag--dark">ART_003</div>
             <h3 class="artifact-card__title artifact-card__title--large">KILPATRICK</h3>
             <p class="artifact-card__desc">
-              Modernizing the legacy of legal excellence. Clean layouts meet brutalist-inspired navigational performance.
+              Rebuilt the front-end for a major US law firm. Kept the gravitas, dropped the weight.
             </p>
             <a href="https://ktslaw.com/" target="_blank" rel="noopener noreferrer" class="artifact-card__view-link">
               <span>VIEW_STRUCTURE</span>
@@ -209,8 +215,6 @@ import BigCta from '../components/big-cta.astro';
     text-transform: uppercase;
     padding: 0.5rem 1.5rem;
     position: relative;
-    /* border: 2px solid var(--color-on-surface); */
-    /* box-shadow: 4px 4px 0px var(--color-on-surface); */
 
     &:after {
       position: absolute;
@@ -222,7 +226,6 @@ import BigCta from '../components/big-cta.astro';
       background-image: radial-gradient(var(--color-on-surface) 15%, transparent 16%);
       background-size: 4px 4px;
       background-color: var(--color-primary-container);
-      /* z-index: -1; */
       opacity: 0.4;
     }
   }
@@ -248,18 +251,17 @@ import BigCta from '../components/big-cta.astro';
   /* ── Halftone deco ────────────────────────────────────────── */
 
   .work-hero__halftone {
-    display: none;
+    display: block;
     position: absolute;
-    top: 0;
+    top: -18px;
     right: 0;
     z-index: -1;
-    width: 24rem;
+    width: 100%;
     height: 24rem;
     background-image: radial-gradient(var(--color-on-surface) 1px, transparent 0);
     background-size: 4px 4px;
-    background-color: var(--color-on-background);
     opacity: 0.2;
-    transform: rotate(12deg);
+    transform: rotate(6deg);
 
     @media (min-width: 1024px) {
       display: block;
@@ -274,6 +276,7 @@ import BigCta from '../components/big-cta.astro';
     max-width: 90rem;
     margin: 0 auto;
     padding: 0 1.5rem;
+    position: relative;
   }
 
   .artifacts__heading {
@@ -330,12 +333,12 @@ import BigCta from '../components/big-cta.astro';
     filter: grayscale(0.3) contrast(1);
     /* mix-blend-mode: multiply; */
     object-position: top;
-    transform: scale(1.05);
+    /* transform: scale(1.05); */
     transition: transform 500ms, filter 500ms;
   }
 
   .artifact-card:hover .artifact-card__img {
-    transform: scale(1);
+    /* transform: scale(1); */
     filter: grayscale(0) contrast(1.1);
   }
 
@@ -655,10 +658,10 @@ import BigCta from '../components/big-cta.astro';
     }
   }
 
-  .artifact-card--kilpatrick__img-wrap .artifact-card__img {
+  /* .artifact-card--kilpatrick__img-wrap .artifact-card__img {
     width: 100%;
     height: 100%;
-  }
+  } */
 
   .artifact-card--kilpatrick__content {
     flex: 1;
@@ -728,7 +731,7 @@ import BigCta from '../components/big-cta.astro';
   .work-cta__heading {
     font-family: var(--font-headline);
     font-weight: 900;
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-size: clamp(1.7rem, 6vw, 4.5rem);
     text-transform: uppercase;
     font-style: italic;
     letter-spacing: -0.05em;
@@ -759,3 +762,15 @@ import BigCta from '../components/big-cta.astro';
     white-space: nowrap;
   }
 </style>
+
+<script>
+  document.querySelectorAll('.artifact-card video').forEach(video => {
+    video.addEventListener('mouseenter', () => {
+      video.play();
+    });
+    video.addEventListener('mouseleave', () => {
+      video.pause();
+      // video.currentTime = 0;
+    });
+  });
+</script>
