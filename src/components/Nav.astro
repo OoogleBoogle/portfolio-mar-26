@@ -49,39 +49,40 @@ const { activePage } = Astro.props;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5rem 1.5rem;
+    padding: 2rem 1.5rem;
     transform: rotate(-1deg);
     transform-origin: left center;
 
-    background-color: var(--color-inverse-surface);
-    background-image: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+    background: var(--color-inverse-surface) url('/carbon-fibre.png');
     border-bottom: 4px double var(--color-primary-container);
     filter: drop-shadow(8px 8px 0px rgba(0, 0, 0, 1));
-
-    &::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      /* border: 2px solid var(--color-primary-container); */
-      pointer-events: none;
-    }
   }
 
   /* ── Logo ────────────────────────────────────────────────── */
 
   .site-nav__logo {
-    font-family: var(--font-headline);
-    font-weight: 900;
-    font-style: italic;
-    font-size: 1.5rem;
-    text-transform: uppercase;
-    letter-spacing: -0.05em;
-    color: var(--color-primary-container);
     background-color: var(--color-inverse-surface);
     border: 2px solid var(--color-primary-container);
     padding: 0.25rem 1rem;
     transform: rotate(-2deg) skewX(-6deg);
     display: inline-block;
+    transition: transform 75ms;
+
+    a,
+    a:is(:visited) {
+      font-family: var(--font-headline);
+      font-weight: 900;
+      font-style: italic;
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: -0.05em;
+      color: var(--color-primary-container);
+
+    }
+
+    &:is(:hover, :focus-within, :active) {
+      transform: rotate(-2deg) skewX(-6deg) scale(1.1);
+    }
   }
 
   /* ── Nav links ───────────────────────────────────────────── */
@@ -100,7 +101,7 @@ const { activePage } = Astro.props;
   .site-nav__link {
     font-family: var(--font-headline);
     font-weight: 700;
-    font-size: 1.5rem;
+    font-size: 2rem;
     text-transform: uppercase;
     letter-spacing: -0.05em;
     text-decoration: none;
@@ -110,7 +111,6 @@ const { activePage } = Astro.props;
     transition: transform 75ms, color 75ms;
 
     &:hover {
-      color: #ffffff;
       transform: skewX(-6deg) rotate(-3deg) scale(1.1);
     }
 
@@ -120,12 +120,13 @@ const { activePage } = Astro.props;
   }
 
   .site-nav__link--active {
-    color: #ffffff;
+    color: #000;
     background-color: var(--color-primary-container);
     padding: 0 0.5rem;
     text-decoration: underline;
     text-decoration-thickness: 4px;
     text-underline-offset: 4px;
+    text-decoration-color: var(--color-inverse-primary);
   }
 
   /* ── Menu button ───────────────────────────────────────────

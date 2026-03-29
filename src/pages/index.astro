@@ -30,12 +30,13 @@ import Layout from '../layouts/Layout.astro';
                 <p class="hero__xerox-body">
                   If a site doesn't need a framework, it doesn't get one.
                   <span class="hero__highlight">Static stays static.</span>
-                  Native web components for the soul. The right tool for the right job, always.
+                  The right tool for the right job, always.
                 </p>
               </div>
 
               <p class="hero__manifesto-text">
-                Dismantling clean grids and corporate sterility one pixel at a time.
+                Cut my teeth in agencies building sites for Google, then Meta. And now I
+                bring that experience to bold, boundary-pushing projects of all sizes.
                 I don't build "solutions"—I build experiences that actually feel something.
               </p>
 
@@ -57,12 +58,12 @@ import Layout from '../layouts/Layout.astro';
               <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">location_on</span>
               <span class="hero__location-label">CURRENT BASE</span>
             </div>
-            <p class="hero__location-city">BETHESDA, MD / REMOTE</p>
+            <p class="hero__location-city">DC METRO AREA / REMOTE</p>
           </div>
 
           <div class="hero__portrait">
             <img
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuChx9NE5pPqoldBbs_OpAPBn0-SzqKdhch6i4VWpqmrEczr-SQMKQ27jjM4If2-_EdBVWWlUSwl43rOg_nJaeM4iimQNk2_sEuKV4sYI_7oEGJ5GKUqAtktRByJk5mvNRZXBB5GX2HOalWfXMMH8A62VaW7m95TxfSkyy4HHFijDZkZG0OMJGpz3BMNCRI7G2IJOYxrWlTr5dpxX7U8hEaOfZLnK59M79A"
+              src="/guitar.jpg"
               alt="Digital punk aesthetic"
               class="hero__portrait-img"
             />
@@ -115,8 +116,8 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
   <!-- Decorative background words -->
-  <div class="decor-word decor-word--no" aria-hidden="true">NO</div>
-  <div class="decor-word decor-word--yes" aria-hidden="true">YES</div>
+  <!-- <div class="decor-word decor-word--no" aria-hidden="true">NO</div>
+  <div class="decor-word decor-word--yes" aria-hidden="true">YES</div> -->
 
 </Layout>
 
@@ -188,7 +189,7 @@ import Layout from '../layouts/Layout.astro';
   .hero__name {
     font-family: var(--font-headline);
     font-weight: 900;
-    font-size: 12vw;
+    font-size: 22vw;
     line-height: 0.8;
     letter-spacing: -0.05em;
     color: var(--color-on-background);
@@ -197,7 +198,7 @@ import Layout from '../layouts/Layout.astro';
     margin: 0;
 
     @media (min-width: 768px) {
-      font-size: 10vw;
+      font-size: min(15vw, 13.5rem);
     }
   }
 
@@ -446,7 +447,8 @@ import Layout from '../layouts/Layout.astro';
     height: 100%;
     object-fit: cover;
     mix-blend-mode: screen;
-    opacity: 0.8;
+    opacity: 0.6;
+    filter: sepia(1.3) grayscale(0.5) contrast(1.2);
   }
 
   .hero__portrait-halftone {

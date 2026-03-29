@@ -1,0 +1,763 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Work — Simon Attfield" activePage="work">
+
+  <!-- Hero -->
+  <section class="work-hero">
+
+    <h1 class="ransom-note" aria-label="Anarchy in the Front-End">
+      <span>A</span><span>N</span><span>A</span><span>R</span><span>C</span><span>H</span><span>Y</span>
+      <span>&nbsp;</span>
+      <span>I</span><span>N</span>
+      <span>&nbsp;</span>
+      <span>T</span><span>H</span><span>E</span>
+      <span>&nbsp;</span>
+      <span>F</span><span>R</span><span>O</span><span>N</span><span>T</span><span>-</span><span>E</span><span>N</span><span>D</span>
+    </h1>
+
+    <div class="work-hero__tags">
+      <span class="work-tag work-tag--primary">ANIMATION</span>
+      <span class="work-tag work-tag--secondary">UX/UI</span>
+      <span class="work-tag work-tag--neutral">OPTIMIZATION</span>
+    </div>
+
+    <!-- Halftone decoration, hidden on small screens -->
+    <div class="work-hero__halftone" aria-hidden="true"></div>
+  </section>
+
+  <!-- Artifacts Grid -->
+  <section class="artifacts">
+    <h2 class="artifacts__heading">FRONT-END ARTIFACTS // CODE_AS_ART</h2>
+
+    <div class="artifacts__grid">
+
+      <!-- Card 1: Nardello & Co — large (7 cols) -->
+      <article class="artifact-card artifact-card--nardello">
+        <div class="artifact-card__img-wrap">
+          <img
+            srcset="/work/nardello/screen.jpg 1x, /work/nardello/screen@2x.jpg 2x"
+            src="/work/nardello.jpg"
+            alt="Nardello & Co Investigations Website"
+            class="artifact-card__img"
+          />
+          <div class="artifact-card__img-tint"></div>
+        </div>
+        <div class="artifact-card__body artifact-card__body--nardello">
+          <div class="artifact-card__art-tag">ART_001</div>
+          <h3 class="artifact-card__title">NARDELLO &amp; CO</h3>
+          <p class="artifact-card__desc">
+            Engineering trust for a leading global investigations firm. A study in high-stakes information architecture and refined typography.
+          </p>
+          <div class="artifact-card__footer">
+            <span class="artifact-card__label">INVESTIGATION_UI</span>
+            <a href="https://nardelloandco.com/" target="_blank" rel="noopener noreferrer" class="artifact-card__cta">DECRYPT_DOCS</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 2: Smashcreate — smaller (5 cols), offset down -->
+      <article class="artifact-card artifact-card--codec">
+        <div class="artifact-card__img-wrap artifact-card__img-wrap--square">
+          <img
+            srcset="/work/smashcreate/screen.jpg 1x, /work/smashcreate/screen@2x.jpg 2x"
+            src="/work/smashcreate/screen.jpg"
+            alt="Meta Codec Avatars"
+            class="artifact-card__img"
+          />
+          <div class="artifact-card__img-tint artifact-card__img-tint--secondary"></div>
+        </div>
+        <div class="artifact-card__body">
+          <h3 class="artifact-card__title artifact-card__title--italic">SMASHCREATE</h3>
+          <p class="artifact-card__desc">
+            Agency-quality brand identity for startups. On-demand, fixed price, zero runway wasted.
+          </p>
+          <a href="https://www.smashcreate.design/" target="_blank" rel="noopener noreferrer" class="artifact-card__cta artifact-card__cta--outline">INITIALIZE_SYNC</a>
+        </div>
+      </article>
+
+      <!-- Quote scrap — 4 cols -->
+      <aside class="artifact-quote">
+        <span class="material-symbols-outlined artifact-quote__icon" style="font-variation-settings: 'FILL' 1">format_quote</span>
+        <p class="artifact-quote__text">
+          "The screen is not a window, it's a surface for collision. We don't code features, we code experiences that leave a mark."
+        </p>
+        <div class="artifact-quote__attribution">
+          <div class="artifact-quote__rule"></div>
+          <span class="artifact-quote__author">THE_ARTIFACT_MANIFESTO</span>
+        </div>
+      </aside>
+
+      <!-- Card 3: Kilpatrick — wide (8 cols) -->
+      <article class="artifact-card artifact-card--kilpatrick">
+        <div class="artifact-card--kilpatrick__inner">
+          <div class="artifact-card--kilpatrick__img-wrap">
+            <img
+              srcset="/work/kilpatrick/screen.jpg 1x,
+              /work/kilpatrick/screen@2x.jpg 2x"
+              src="/work/kilpatrick/screen.jpg"
+              alt="Kilpatrick Law Firm Website"
+              class="artifact-card__img"
+            />
+          </div>
+          <div class="artifact-card--kilpatrick__content">
+            <div class="artifact-card__art-tag artifact-card__art-tag--dark">ART_003</div>
+            <h3 class="artifact-card__title artifact-card__title--large">KILPATRICK</h3>
+            <p class="artifact-card__desc">
+              Modernizing the legacy of legal excellence. Clean layouts meet brutalist-inspired navigational performance.
+            </p>
+            <a href="#" class="artifact-card__view-link">
+              <span>VIEW_STRUCTURE</span>
+              <span class="material-symbols-outlined artifact-card__view-icon">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="work-cta">
+    <div class="work-cta__halftone" aria-hidden="true"></div>
+    <div class="work-cta__tape work-cta__tape--tl" aria-hidden="true"></div>
+    <div class="work-cta__tape work-cta__tape--br" aria-hidden="true"></div>
+    <div class="work-cta__inner">
+      <h2 class="work-cta__heading">WANT_TO_BREAK_THINGS?</h2>
+      <a href="https://linkedin.com/in/simonattfield" target="_blank" rel="noopener noreferrer" class="work-cta__link">LINKEDIN</a>
+    </div>
+  </section>
+
+  <!-- Footer decoration -->
+  <div slot="footer-decoration" class="work-footer-decor" aria-hidden="true">BRUTAL</div>
+
+</Layout>
+
+<style>
+  /* ============================================================
+     HERO
+     ============================================================ */
+
+  .work-hero {
+    max-width: 90rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    position: relative;
+    margin-bottom: 8rem;
+  }
+
+  /* Ransom note: alternating inverted characters */
+  .ransom-note {
+    font-family: var(--font-headline);
+    font-weight: 900;
+    font-size: clamp(3rem, 9vw, 7rem);
+    text-transform: uppercase;
+    letter-spacing: -0.05em;
+    line-height: 1;
+    margin: 0 0 3rem;
+    /* allow wrapping without gap between spans */
+    word-spacing: 0;
+  }
+
+  .ransom-note span {
+    display: inline-block;
+    padding: 0 4px;
+    margin: 0 -2px;
+  }
+
+  /* Space characters — transparent background */
+  .ransom-note span:has(> br),
+  .ransom-note span:empty {
+    background: none;
+  }
+
+  .ransom-note span:nth-child(odd):not(:empty) {
+    background-color: var(--color-on-background);
+    color: var(--color-inverse-primary);
+    transform: rotate(-2deg) translateY(-2px);
+  }
+
+  .ransom-note span:nth-child(even):not(:empty) {
+    background-color: var(--color-primary-container);
+    color: var(--color-on-background);
+    transform: rotate(3deg) translateY(2px);
+    border: 2px solid var(--color-on-background);
+  }
+
+  /* Whitespace spans — no style */
+  .ransom-note span[aria-hidden] {
+    background: none;
+    border: none;
+    transform: none;
+  }
+
+  /* ── Tags ─────────────────────────────────────────────────── */
+
+  .work-hero__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 5rem;
+  }
+
+  .work-tag {
+    font-family: var(--font-label);
+    font-weight: 700;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    padding: 0.5rem 1.5rem;
+    border: 2px solid var(--color-on-surface);
+    box-shadow: 4px 4px 0px var(--color-on-surface);
+  }
+
+  .work-tag--primary {
+    background-color: var(--color-primary);
+    color: var(--color-on-primary);
+    transform: rotate(-3deg);
+  }
+
+  .work-tag--secondary {
+    background-color: var(--color-secondary);
+    color: var(--color-on-secondary);
+    transform: rotate(2deg);
+  }
+
+  .work-tag--neutral {
+    background-color: var(--color-surface-container-highest);
+    color: var(--color-on-surface);
+    transform: rotate(-1deg);
+  }
+
+  /* ── Halftone deco ────────────────────────────────────────── */
+
+  .work-hero__halftone {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    width: 24rem;
+    height: 24rem;
+    background-image: radial-gradient(var(--color-on-surface) 1px, transparent 0);
+    background-size: 4px 4px;
+    background-color: var(--color-on-background);
+    opacity: 0.2;
+    transform: rotate(12deg);
+
+    @media (min-width: 1024px) {
+      display: block;
+    }
+  }
+
+  /* ============================================================
+     ARTIFACTS SECTION
+     ============================================================ */
+
+  .artifacts {
+    max-width: 90rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .artifacts__heading {
+    font-family: var(--font-headline);
+    font-weight: 900;
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    text-transform: uppercase;
+    letter-spacing: -0.05em;
+    border-bottom: 4px solid var(--color-on-surface);
+    display: inline-block;
+    margin: 0 0 3rem;
+  }
+
+  /* 12-column grid */
+  .artifacts__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: start;
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(12, 1fr);
+    }
+  }
+
+  /* ============================================================
+     ARTIFACT CARD — shared
+     ============================================================ */
+
+  .artifact-card {
+    border: 2px solid var(--color-on-surface);
+    transition: transform 150ms;
+  }
+
+  .artifact-card__img-wrap {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+    background-color: #000;
+  }
+
+  .artifact-card__img-wrap--square {
+    aspect-ratio: 1 / 1;
+    background-color: #1a1a1a;
+  }
+
+  .artifact-card__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(0.3) contrast(1);
+    /* mix-blend-mode: multiply; */
+    object-position: top;
+    transform: scale(1.05);
+    transition: transform 500ms, filter 500ms;
+  }
+
+  .artifact-card:hover .artifact-card__img {
+    transform: scale(1);
+    filter: grayscale(0) contrast(1.1);
+  }
+
+  .artifact-card__img-tint {
+    position: absolute;
+    inset: 0;
+    background-color: var(--color-primary);
+    opacity: 0.2;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+  }
+
+  .artifact-card__img-tint--secondary {
+    background-color: var(--color-secondary);
+    mix-blend-mode: color;
+    opacity: 0.1;
+  }
+
+  .artifact-card__body {
+    padding: 1.5rem;
+    position: relative;
+  }
+
+  /* ART_xxx tag — pink badge, rotated, overlaps top-right */
+  .artifact-card__art-tag {
+    position: absolute;
+    top: -1rem;
+    right: -1rem;
+    background-color: var(--color-secondary);
+    color: var(--color-on-secondary);
+    font-family: var(--font-label);
+    font-weight: 900;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    padding: 0.25rem 1rem;
+    transform: rotate(6deg);
+  }
+
+  .artifact-card__art-tag--dark {
+    position: static;
+    display: inline-block;
+    background-color: var(--color-on-surface);
+    color: var(--color-surface);
+    font-family: var(--font-label);
+    font-weight: 700;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    padding: 0.25rem 0.75rem;
+    margin-bottom: 1rem;
+    transform: none;
+  }
+
+  .artifact-card__title {
+    font-family: var(--font-headline);
+    font-weight: 800;
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    text-transform: uppercase;
+    letter-spacing: -0.03em;
+    margin: 0 0 1rem;
+    line-height: 1;
+  }
+
+  .artifact-card__title--italic {
+    font-style: italic;
+  }
+
+  .artifact-card__title--large {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 900;
+    margin-bottom: 1rem;
+  }
+
+  .artifact-card__desc {
+    font-family: var(--font-body);
+    font-size: 1.125rem;
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--color-on-surface-variant);
+    margin: 0 0 1.5rem;
+  }
+
+  .artifact-card__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .artifact-card__label {
+    font-family: var(--font-label);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: var(--color-outline);
+    text-transform: uppercase;
+  }
+
+  .artifact-card__cta {
+    background-color: var(--color-on-surface);
+    color: var(--color-surface);
+    font-family: var(--font-label);
+    font-weight: 900;
+    font-size: 1rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0.75rem 2rem;
+    box-shadow: 4px 4px 0px var(--color-primary-container);
+    transition: transform 100ms, box-shadow 100ms;
+
+    &:hover {
+      transform: rotate(-2deg);
+    }
+
+    &:active {
+      transform: none;
+      box-shadow: none;
+    }
+  }
+
+  .artifact-card__cta--outline {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: none;
+    border: 2px solid var(--color-on-surface);
+    padding: 0.5rem;
+    box-shadow: none;
+    font-family: var(--font-label);
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--color-on-surface);
+    transition: background-color 100ms, color 100ms;
+
+    &:hover {
+      background-color: var(--color-on-surface);
+      color: var(--color-surface);
+      transform: none;
+    }
+  }
+
+  .artifact-card__view-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    color: var(--color-on-surface);
+    margin-top: 1.5rem;
+
+    span:first-child {
+      font-family: var(--font-label);
+      font-weight: 900;
+      font-size: 1.25rem;
+      text-transform: uppercase;
+    }
+
+    &:hover span:first-child {
+      text-decoration: underline;
+    }
+  }
+
+  .artifact-card__view-icon {
+    background-color: var(--color-inverse-primary);
+    padding: 0.5rem;
+    border: 2px solid var(--color-on-surface);
+    font-size: 1.25rem !important;
+    transition: translate 100ms;
+  }
+
+  .artifact-card__view-link:hover .artifact-card__view-icon {
+    translate: 0.5rem 0;
+  }
+
+  /* ============================================================
+     CARD — NARDELLO (col-span-7)
+     ============================================================ */
+
+  .artifact-card--nardello {
+    background-color: var(--color-surface-container-low);
+    padding: 0.5rem;
+    transform: rotate(-1deg);
+
+    @media (min-width: 768px) {
+      grid-column: span 7;
+    }
+
+    &:hover {
+      transform: rotate(0deg);
+    }
+
+    .artifact-card__body--nardello {
+      background-color: var(--color-surface-bright);
+      margin-top: 0.5rem;
+      border-top: 2px solid var(--color-on-surface);
+    }
+  }
+
+  /* ============================================================
+     CARD — CODEC AVATARS (col-span-5, offset down)
+     ============================================================ */
+
+  .artifact-card--codec {
+    background-color: var(--color-surface-container-high);
+    padding: 0.5rem;
+    transform: rotate(2deg);
+
+    @media (min-width: 768px) {
+      grid-column: span 5;
+      margin-top: 6rem;
+    }
+
+    &:hover {
+      transform: rotate(0deg);
+    }
+
+    .artifact-card__body {
+      background-color: var(--color-surface);
+      margin-top: 0.5rem;
+      border-top: 2px solid var(--color-on-surface);
+    }
+  }
+
+  /* ============================================================
+     QUOTE SCRAP (col-span-4)
+     ============================================================ */
+
+  .artifact-quote {
+    background-color: var(--color-primary-container);
+    padding: 2rem;
+    border: 2px solid var(--color-on-surface);
+    transform: rotate(-3deg);
+    box-shadow: 12px 12px 0px color-mix(in srgb, #000 10%, transparent);
+
+    @media (min-width: 768px) {
+      grid-column: span 4;
+    }
+  }
+
+  .artifact-quote__icon {
+    font-size: 2.5rem;
+    color: var(--color-on-primary-container);
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .artifact-quote__text {
+    font-family: var(--font-body);
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--color-on-primary-container);
+    margin: 0 0 1.5rem;
+  }
+
+  .artifact-quote__attribution {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .artifact-quote__rule {
+    width: 3rem;
+    height: 2px;
+    background-color: var(--color-on-primary-container);
+  }
+
+  .artifact-quote__author {
+    font-family: var(--font-label);
+    font-weight: 900;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--color-on-primary-container);
+  }
+
+  /* ============================================================
+     CARD — KILPATRICK (col-span-8)
+     ============================================================ */
+
+  .artifact-card--kilpatrick {
+    background-color: var(--color-surface-container-highest);
+    border: 2px solid var(--color-on-surface);
+    transform: rotate(0.5deg);
+
+    @media (min-width: 768px) {
+      grid-column: span 8;
+    }
+
+    &:hover {
+      transform: rotate(-1deg);
+    }
+  }
+
+  .artifact-card--kilpatrick__inner {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    @media (min-width: 640px) {
+      flex-direction: row;
+    }
+  }
+
+  .artifact-card--kilpatrick__img-wrap {
+    flex: 0 0 auto;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border: 2px solid var(--color-on-surface);
+    background-color: #000;
+
+    @media (min-width: 640px) {
+      width: 50%;
+    }
+  }
+
+  .artifact-card--kilpatrick__img-wrap .artifact-card__img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .artifact-card--kilpatrick__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+  }
+
+  /* ============================================================
+     CTA SECTION
+     ============================================================ */
+
+  .work-cta {
+    margin-top: 8rem;
+    position: relative;
+    padding: 5rem 2rem;
+    background-color: var(--color-on-surface);
+    color: var(--color-surface);
+    overflow: hidden;
+  }
+
+  .work-cta__halftone {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(var(--color-surface) 1px, transparent 0);
+    background-size: 4px 4px;
+    opacity: 0.3;
+    pointer-events: none;
+  }
+
+  .work-cta__tape {
+    position: absolute;
+    background-color: var(--color-secondary);
+    opacity: 0.5;
+  }
+
+  .work-cta__tape--tl {
+    top: 1rem;
+    left: 1rem;
+    width: 8rem;
+    height: 2.5rem;
+    transform: rotate(-45deg);
+  }
+
+  .work-cta__tape--br {
+    bottom: 1rem;
+    right: 1rem;
+    width: 12rem;
+    height: 3rem;
+    background-color: var(--color-primary);
+    transform: rotate(12deg);
+  }
+
+  .work-cta__inner {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    max-width: 42rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .work-cta__heading {
+    font-family: var(--font-headline);
+    font-weight: 900;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    text-transform: uppercase;
+    font-style: italic;
+    letter-spacing: -0.05em;
+    line-height: 1;
+    transform: rotate(-1deg);
+    margin: 0;
+    color: var(--color-surface);
+  }
+
+  .work-cta__link {
+    background-color: var(--color-primary-fixed);
+    color: var(--color-on-primary-fixed);
+    font-family: var(--font-label);
+    font-weight: 900;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 3rem;
+    border: 4px solid var(--color-surface);
+    box-shadow: 8px 8px 0px var(--color-secondary);
+    transform: rotate(-1deg);
+    transition: translate 100ms, box-shadow 100ms;
+
+    &:hover {
+      translate: 2px 2px;
+      box-shadow: none;
+    }
+  }
+
+  /* ============================================================
+     FOOTER DECORATION
+     ============================================================ */
+
+  .work-footer-decor {
+    position: absolute;
+    bottom: -1rem;
+    left: 50%;
+    translate: -50% 0;
+    opacity: 0.1;
+    pointer-events: none;
+    user-select: none;
+    font-family: var(--font-headline);
+    font-weight: 900;
+    font-size: clamp(6rem, 15vw, 12.5rem);
+    line-height: 1;
+    letter-spacing: -0.05em;
+    color: var(--color-on-surface);
+    white-space: nowrap;
+  }
+</style>

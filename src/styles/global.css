@@ -100,7 +100,7 @@
    ============================================================================= */
 
 body {
-  background-color: var(--color-background);
+  background-color: var(--color-surface-dim);
   color: var(--color-on-background);
   font-family: var(--font-body);
   margin: 0;
