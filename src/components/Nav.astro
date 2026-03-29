@@ -3,26 +3,29 @@ interface Props {
   activePage?: 'home' | 'work' | 'about';
 }
 const { activePage } = Astro.props;
+
+const links = [
+  { name: 'FRONT', href: '/', active: activePage === 'home' },
+  { name: 'WORK', href: '/work', active: activePage === 'work' },
+  { name: 'ABOUT', href: '/about', active: activePage === 'about' },
+];
 ---
 
 <div class="header-wrap">
   <header class="site-nav">
-    <div class="site-nav__logo"><a href="/" class:list={[{ 'site-nav__link-home--active': activePage === 'home' }]}>HOME</a></div>
+    <!-- <div class="site-nav__logo"><a href="/" class:list={[{ 'site-nav__link-home--active': activePage === 'home' }]}>HOME</a></div> -->
 
     <nav class="site-nav__links">
-      <a
-        href="/work"
-        class="site-nav__link"
-        class:list={[{ 'site-nav__link--active': activePage === 'work' }]}
-      >WORK</a>
-      <a
-        href="/about"
-        class="site-nav__link"
-        class:list={[{ 'site-nav__link--active': activePage === 'about' }]}
-      >ABOUT</a>
+      {links.map(link => (
+        <a
+          href={link.href}
+          class="site-nav__link"
+          class:list={[{ 'site-nav__link--active': link.active }]}
+        >{link.name}</a>
+      ))}
     </nav>
-  <!--
-    <button class="site-nav__menu-btn" aria-label="Open menu">
+
+    <!-- <button class="site-nav__menu-btn" aria-label="Open menu">
       <span class="material-symbols-outlined">menu</span>
     </button> -->
   </header>
@@ -47,7 +50,7 @@ const { activePage } = Astro.props;
 
     z-index: 50;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 2rem 1.5rem;
     transform: rotate(-1deg);
@@ -88,13 +91,12 @@ const { activePage } = Astro.props;
   /* ── Nav links ───────────────────────────────────────────── */
 
   .site-nav__links {
-    display: none;
-    gap: 2rem;
+    display: flex;
+    gap: 1.5rem;
     align-items: center;
 
     @media (min-width: 768px) {
-      display: flex;
-      flex-basis: 50%;
+      gap: 3rem;
     }
   }
 
@@ -129,7 +131,7 @@ const { activePage } = Astro.props;
     text-decoration-color: var(--color-inverse-primary);
   }
 
-  /* ── Menu button ───────────────────────────────────────────
+  /* ── Menu button ─────────────────────────────────────────── */
 
   .site-nav__menu-btn {
     background: none;
@@ -151,5 +153,9 @@ const { activePage } = Astro.props;
     &:active {
       translate: 0 2px;
     }
-  } */
+
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
 </style>
