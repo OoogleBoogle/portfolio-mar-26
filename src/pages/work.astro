@@ -108,7 +108,7 @@ import BigCta from '../components/big-cta.astro';
             <p class="artifact-card__desc">
               Modernizing the legacy of legal excellence. Clean layouts meet brutalist-inspired navigational performance.
             </p>
-            <a href="#" class="artifact-card__view-link">
+            <a href="https://ktslaw.com/" target="_blank" rel="noopener noreferrer" class="artifact-card__view-link">
               <span>VIEW_STRUCTURE</span>
               <span class="material-symbols-outlined artifact-card__view-icon">arrow_forward</span>
             </a>
@@ -208,8 +208,23 @@ import BigCta from '../components/big-cta.astro';
     font-size: 1.25rem;
     text-transform: uppercase;
     padding: 0.5rem 1.5rem;
-    border: 2px solid var(--color-on-surface);
-    box-shadow: 4px 4px 0px var(--color-on-surface);
+    position: relative;
+    /* border: 2px solid var(--color-on-surface); */
+    /* box-shadow: 4px 4px 0px var(--color-on-surface); */
+
+    &:after {
+      position: absolute;
+      content: '';
+      top: -0.5rem;
+      left: 30%;
+      width: 4rem;
+      height: 1rem;
+      background-image: radial-gradient(var(--color-on-surface) 15%, transparent 16%);
+      background-size: 4px 4px;
+      background-color: var(--color-primary-container);
+      /* z-index: -1; */
+      opacity: 0.4;
+    }
   }
 
   .work-tag--primary {
@@ -225,7 +240,7 @@ import BigCta from '../components/big-cta.astro';
   }
 
   .work-tag--neutral {
-    background-color: var(--color-surface-container-highest);
+    background-color: var(--color-surface-container-low);
     color: var(--color-on-surface);
     transform: rotate(-1deg);
   }
@@ -291,6 +306,8 @@ import BigCta from '../components/big-cta.astro';
   .artifact-card {
     border: 2px solid var(--color-on-surface);
     transition: transform 150ms;
+    position: relative;
+    z-index: 70;
   }
 
   .artifact-card__img-wrap {
