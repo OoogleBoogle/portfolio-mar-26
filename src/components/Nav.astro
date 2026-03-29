@@ -1,6 +1,6 @@
 ---
 interface Props {
-  activePage?: 'home' | 'work' | 'archive';
+  activePage?: 'home' | 'work' | 'about';
 }
 const { activePage } = Astro.props;
 ---
@@ -16,10 +16,10 @@ const { activePage } = Astro.props;
         class:list={[{ 'site-nav__link--active': activePage === 'work' }]}
       >WORK</a>
       <a
-        href="/archive"
+        href="/about"
         class="site-nav__link"
-        class:list={[{ 'site-nav__link--active': activePage === 'archive' }]}
-      >ARCHIVE</a>
+        class:list={[{ 'site-nav__link--active': activePage === 'about' }]}
+      >ABOUT</a>
     </nav>
   <!--
     <button class="site-nav__menu-btn" aria-label="Open menu">

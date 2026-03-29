@@ -1,9 +1,14 @@
 ---
-const { text, href, type = 'primary' } = Astro.props;
+const {
+  text,
+  href,
+  type = 'primary',
+  rotation = '-1deg'
+} = Astro.props;
 ---
 
-<style>
-   .cta__link {
+<style define:vars={{rotation}}>
+  .cta__link {
     background-color: var(--color-primary-fixed);
     color: var(--color-on-primary-fixed);
     font-family: var(--font-label);
@@ -14,24 +19,29 @@ const { text, href, type = 'primary' } = Astro.props;
     padding: 1.5rem 3rem;
     border: 4px solid var(--color-surface);
     box-shadow: 8px 8px 0px var(--color-secondary);
-    transform: rotate(-1deg);
+    transform: rotate(var(--rotation, -1deg));
     transition: translate 100ms, box-shadow 100ms;
 
     &:hover {
       translate: 2px 2px;
       box-shadow: none;
     }
+  }
 
-    &--secondary {
-      background-color: var(--color-secondary);
-      color: var(--color-on-secondary);
-      border-color: var(--color-surface-variant);
-      box-shadow: 8px 8px 0px var(--color-primary-container);
-      padding: 0.5rem 1.5rem;
+  .cta__link--secondary {
+    background-color: var(--color-secondary);
+    color: var(--color-on-secondary);
+    border-color: var(--color-surface-variant);
+    box-shadow: 8px 8px 0px var(--color-tertiary);
+    padding: 0.5rem 1.5rem;
+    margin: 0.5rem;
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    display: inline-block;
+    transform: rotate(var(--rotation, -1deg));
 
-      &:hover {
-        box-shadow: none;
-      }
+    &:hover {
+      translate: 2px 2px;
+      box-shadow: none;
     }
   }
 </style>
@@ -41,7 +51,6 @@ const { text, href, type = 'primary' } = Astro.props;
   href={href}
   target="_blank"
   rel="noopener noreferrer"
-  class="cta__link"
-  class:list={[`cta__link--${type}`]}>
+  class:list={["cta__link", `cta__link--${type}`]}>
     {text}
 </a>
