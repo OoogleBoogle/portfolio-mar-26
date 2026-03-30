@@ -87,7 +87,7 @@ import BigCta from '../components/big-cta.astro';
             />
           </div>
           <div class="bento__feature-content">
-            <h3 class="bento__feature-title">Built without a framework.</h3>
+            <h3 class="bento__feature-title">Exhibit A.</h3>
             <p class="bento__feature-body">
               Good layouts don't have to look like other good layouts.
             </p>
@@ -147,6 +147,7 @@ import BigCta from '../components/big-cta.astro';
     padding: 0 1.5rem;
     position: relative;
     z-index: 10;
+    overflow-x: clip;
   }
 
   /* Two-column flex layout */
@@ -496,12 +497,13 @@ import BigCta from '../components/big-cta.astro';
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    min-height: 400px;
+    min-height: 300px;
     background-color: var(--color-surface-container-low);
     padding: 2rem;
 
     @media (min-width: 768px) {
       grid-column: span 8;
+      min-height: 400px;
     }
   }
 
