@@ -134,9 +134,12 @@ body {
 }
 
 /* Pause entrance animations while a view transition is active.
+   Guarded by @supports so non-VT browsers never pause .vt-enter by accident.
    JS removes .vt-transitioning after viewTransition.finished, which triggers the play. */
-.vt-transitioning .vt-enter {
-  animation-play-state: paused;
+@supports (view-transition-name: none) {
+  .vt-transitioning .vt-enter {
+    animation-play-state: paused;
+  }
 }
 
 /* Staggered exit + hidden entry (real elements animate via CSS after transition ends) */

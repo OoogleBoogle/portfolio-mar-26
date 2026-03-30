@@ -48,12 +48,22 @@ const { title = 'Simon Attfield', activePage } = Astro.props;
       await document.fonts.ready;
       if ((e as any).viewTransition) {
         document.documentElement.classList.add('vt-transitioning');
-        await (e as any).viewTransition.finished;
-        // Pseudo-elements handled the visual entry — suppress .vt-enter re-animation.
-        // vt-navigated is never explicitly removed: it clears automatically on the next
-        // navigation because cross-document transitions replace <html> entirely.
-        document.documentElement.classList.add('vt-navigated');
-        document.documentElement.classList.remove('vt-transitioning');
+
+        // Safety net: always release .vt-enter after 2.5s even if the promise stalls.
+        const fallback = setTimeout(() => {
+          document.documentElement.classList.remove('vt-transitioning');
+        }, 2500);
+
+        try {
+          await (e as any).viewTransition.finished;
+        } finally {
+          clearTimeout(fallback);
+          // Pseudo-elements handled the visual entry — suppress .vt-enter re-animation.
+          // vt-navigated is never explicitly removed: it clears automatically on the next
+          // navigation because cross-document transitions replace <html> entirely.
+          document.documentElement.classList.add('vt-navigated');
+          document.documentElement.classList.remove('vt-transitioning');
+        }
       }
     });
   </script>
