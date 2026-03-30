@@ -142,7 +142,9 @@ body {
   }
 }
 
-/* Staggered exit + hidden entry (real elements animate via CSS after transition ends) */
+/* Staggered exit + hidden entry — desktop only.
+   Mobile gets the browser's default cross-fade (simpler, avoids Chrome Android version issues). */
+@media (min-width: 768px) {
 html:active-view-transition-type(slide) {
   /* Root: old page stays visible as background, new page hidden — no cross-fade */
   &::view-transition-old(root) { animation: none; }
@@ -219,6 +221,7 @@ html:active-view-transition-type(slide) {
 ::view-transition-group(*) {
   animation-duration: 1.6s;
 }
+} /* end @media (min-width: 768px) */
 
 /* After navigation the pseudo-elements handled the visual entry — suppress real elements
    re-animating. This class is added by pagereveal and clears automatically on the next
