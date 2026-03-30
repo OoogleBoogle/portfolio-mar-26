@@ -12,14 +12,14 @@ import BigCta from '../components/big-cta.astro';
 
         <!-- Left Column: Ransom Note Typography -->
         <div class="hero__left">
-          <div class="hero__tape-strip"></div>
+          <div class="hero__tape-strip vt-enter"></div>
 
-          <h1 class="hero__name">
+          <h1 class="hero__name vt-enter">
             <span class="hero__name-first" style="--rot: -2deg">SIMON</span><br />
             <span class="hero__name-last" style="--rot: 1deg">ATTFIELD</span>
           </h1>
 
-          <div class="hero__ethos-block">
+          <div class="hero__ethos-block vt-enter">
             <div class="hero__ethos-inner">
               <div class="hero__halftone"></div>
 
@@ -53,7 +53,7 @@ import BigCta from '../components/big-cta.astro';
         </div>
 
         <!-- Right Column: Contextual Card -->
-        <div class="hero__right">
+        <div class="hero__right vt-enter">
           <div class="hero__location">
             <div class="hero__location-header">
               <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">location_on</span>
@@ -79,7 +79,7 @@ import BigCta from '../components/big-cta.astro';
       <div class="bento">
 
         <!-- Large feature card -->
-        <div class="bento__feature">
+        <div class="bento__feature vt-enter">
           <div class="bento__feature-bg">
             <img
               src="glitch-art.png"
@@ -96,7 +96,7 @@ import BigCta from '../components/big-cta.astro';
         </div>
 
         <!-- Manifesto card -->
-        <div class="bento__manifesto">
+        <div class="bento__manifesto vt-enter">
           <span
             class="material-symbols-outlined bento__manifesto-icon"
             style="font-variation-settings: 'FILL' 1"
@@ -148,6 +148,10 @@ import BigCta from '../components/big-cta.astro';
     position: relative;
     z-index: 10;
     overflow-x: clip;
+
+    @media (min-width: 968px) {
+      overflow-x: unset;
+    }
   }
 
   /* Two-column flex layout */
@@ -175,19 +179,24 @@ import BigCta from '../components/big-cta.astro';
 
   /* Decorative tape strip behind the name */
   .hero__tape-strip {
+    view-transition-name: vt-home-tape;
+    --vt-delay: 50ms;
+    --vt-opacity: 0.85;
     position: absolute;
     top: -2.8rem;
     left: -2rem;
     width: 12rem;
     height: 3rem;
     background-color: var(--color-primary-fixed);
-    opacity: 0.85;
+    opacity: var(--vt-opacity);
     transform: rotate(-3deg);
     z-index: 11;
   }
 
   /* Name heading */
   .hero__name {
+    view-transition-name: vt-home-name;
+    --vt-delay: 0ms;
     font-family: var(--font-headline);
     font-weight: 900;
     font-size: 22vw;
@@ -222,6 +231,8 @@ import BigCta from '../components/big-cta.astro';
 
   /* Ethos block wrapper — slight clockwise tilt */
   .hero__ethos-block {
+    view-transition-name: vt-home-ethos;
+    --vt-delay: 50ms;
     margin-top: 3rem;
     max-width: 42rem;
     transform: rotate(1deg);
@@ -391,6 +402,8 @@ import BigCta from '../components/big-cta.astro';
   /* ── Right column ────────────────────────────────────────── */
 
   .hero__right {
+    view-transition-name: vt-home-sidebar;
+    --vt-delay: 80ms;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -492,6 +505,8 @@ import BigCta from '../components/big-cta.astro';
 
   /* Large feature card — 8 of 12 columns */
   .bento__feature {
+    view-transition-name: vt-home-bento-a;
+    --vt-delay: 110ms;
     position: relative;
     overflow: hidden;
     display: flex;
@@ -566,6 +581,8 @@ import BigCta from '../components/big-cta.astro';
 
   /* Manifesto card — 4 of 12 columns */
   .bento__manifesto {
+    view-transition-name: vt-home-bento-b;
+    --vt-delay: 140ms;
     background-color: var(--color-secondary);
     padding: 2rem;
     display: flex;

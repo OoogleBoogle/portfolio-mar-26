@@ -40,6 +40,23 @@ const { title = 'Simon Attfield', activePage } = Astro.props;
       <slot name="footer-decoration" />
     </Footer>
   </body>
+  <script>
+    // On navigation: pause entrance animations while the exit plays,
+    // then release them once the view transition finishes so they play
+    // on the real elements (not the pseudo-element screenshots).
+    window.addEventListener('pagereveal', async (e) => {
+      await document.fonts.ready;
+      if ((e as any).viewTransition) {
+        document.documentElement.classList.add('vt-transitioning');
+        await (e as any).viewTransition.finished;
+        // Pseudo-elements handled the visual entry — suppress .vt-enter re-animation.
+        // vt-navigated is never explicitly removed: it clears automatically on the next
+        // navigation because cross-document transitions replace <html> entirely.
+        document.documentElement.classList.add('vt-navigated');
+        document.documentElement.classList.remove('vt-transitioning');
+      }
+    });
+  </script>
 </html>
 
 <style>

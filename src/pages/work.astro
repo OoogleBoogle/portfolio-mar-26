@@ -8,7 +8,7 @@ import BigCta from '../components/big-cta.astro';
   <!-- Hero -->
   <section class="work-hero">
 
-    <h1 class="ransom-note" aria-label="Anarchy in the Front-End">
+    <h1 class="ransom-note vt-enter" aria-label="Anarchy in the Front-End">
       <span>A</span><span>N</span><span>A</span><span>R</span><span>C</span><span>H</span><span>Y</span>
       <span>&nbsp;</span>
       <span>I</span><span>N</span>
@@ -18,7 +18,7 @@ import BigCta from '../components/big-cta.astro';
       <span>F</span><span>R</span><span>O</span><span>N</span><span>T</span><span>-</span><span>E</span><span>N</span><span>D</span>
     </h1>
 
-    <div class="work-hero__tags">
+    <div class="work-hero__tags vt-enter">
       <span class="work-tag work-tag--primary">ANIMATION</span>
       <span class="work-tag work-tag--secondary">UX/UI</span>
       <span class="work-tag work-tag--neutral">OPTIMIZATION</span>
@@ -28,13 +28,13 @@ import BigCta from '../components/big-cta.astro';
   <!-- Artifacts Grid -->
   <section class="artifacts">
     <!-- Halftone decoration, hidden on small screens -->
-    <div class="work-hero__halftone" aria-hidden="true"></div>
-    <h2 class="artifacts__heading">FRONT-END ARTIFACTS // CODE_AS_ART</h2>
+    <div class="work-hero__halftone vt-enter" aria-hidden="true"></div>
+    <h2 class="artifacts__heading vt-enter">FRONT-END ARTIFACTS // CODE_AS_ART</h2>
 
     <div class="artifacts__grid">
 
       <!-- Card 1: Nardello & Co — large (7 cols) -->
-      <article class="artifact-card artifact-card--nardello">
+      <article class="artifact-card artifact-card--nardello vt-enter">
         <div class="artifact-card__img-wrap">
           <video loop muted playsinline class="artifact-card__img" poster="/work/nardello/screen.jpg">
             <source src="/work/nardello/nardello-scroll.mp4" type="video/mp4">
@@ -61,7 +61,7 @@ import BigCta from '../components/big-cta.astro';
       </article>
 
       <!-- Card 2: Smashcreate — smaller (5 cols), offset down -->
-      <article class="artifact-card artifact-card--codec">
+      <article class="artifact-card artifact-card--codec vt-enter">
         <div class="artifact-card__img-wrap artifact-card__img-wrap--square">
           <video loop muted playsinline class="artifact-card__img" poster="/work/smashcreate/screen.jpg">
             <source src="/work/smashcreate/smashcreate-scroll.mp4" type="video/mp4">
@@ -84,7 +84,7 @@ import BigCta from '../components/big-cta.astro';
       </article>
 
       <!-- Quote scrap — 4 cols -->
-      <aside class="artifact-quote">
+      <aside class="artifact-quote vt-enter">
         <span class="material-symbols-outlined artifact-quote__icon" style="font-variation-settings: 'FILL' 1">format_quote</span>
         <p class="artifact-quote__text">
           "Three clients. Three very different problems. One bar."
@@ -95,7 +95,7 @@ import BigCta from '../components/big-cta.astro';
       </aside>
 
       <!-- Card 3: Kilpatrick — wide (8 cols) -->
-      <article class="artifact-card artifact-card--kilpatrick">
+      <article class="artifact-card artifact-card--kilpatrick vt-enter">
         <div class="artifact-card--kilpatrick__inner">
           <div class="artifact-card--kilpatrick__img-wrap">
             <video loop muted playsinline class="artifact-card__img" poster="/work/kilpatrick/screen.jpg">
@@ -126,7 +126,7 @@ import BigCta from '../components/big-cta.astro';
   </section>
 
   <!-- CTA -->
-  <section class="work-cta">
+  <section class="work-cta vt-enter">
     <div class="work-cta__halftone" aria-hidden="true"></div>
     <div class="work-cta__tape work-cta__tape--tl" aria-hidden="true"></div>
     <div class="work-cta__tape work-cta__tape--br" aria-hidden="true"></div>
@@ -156,6 +156,8 @@ import BigCta from '../components/big-cta.astro';
 
   /* Ransom note: alternating inverted characters */
   .ransom-note {
+    view-transition-name: vt-work-title;
+    --vt-delay: 0ms;
     font-family: var(--font-headline);
     font-weight: 900;
     font-size: clamp(3rem, 9vw, 7rem);
@@ -202,6 +204,8 @@ import BigCta from '../components/big-cta.astro';
   /* ── Tags ─────────────────────────────────────────────────── */
 
   .work-hero__tags {
+    view-transition-name: vt-work-tags;
+    --vt-delay: 40ms;
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
@@ -251,6 +255,9 @@ import BigCta from '../components/big-cta.astro';
   /* ── Halftone deco ────────────────────────────────────────── */
 
   .work-hero__halftone {
+    view-transition-name: vt-work-halftone;
+    --vt-delay: 50ms;
+    --vt-opacity: 0.2;
     display: block;
     position: absolute;
     top: -18px;
@@ -260,7 +267,7 @@ import BigCta from '../components/big-cta.astro';
     height: 24rem;
     background-image: radial-gradient(var(--color-on-surface) 1px, transparent 0);
     background-size: 4px 4px;
-    opacity: 0.2;
+    opacity: var(--vt-opacity);
     transform: rotate(6deg);
 
     @media (min-width: 1024px) {
@@ -278,9 +285,15 @@ import BigCta from '../components/big-cta.astro';
     padding: 0 1.5rem;
     position: relative;
     overflow-x: clip;
+
+    @media (min-width: 768px) {
+      overflow-x: visible;
+    }
   }
 
   .artifacts__heading {
+    view-transition-name: vt-work-heading;
+    --vt-delay: 56ms;
     font-family: var(--font-headline);
     font-weight: 900;
     font-size: clamp(1.5rem, 3vw, 2.5rem);
@@ -521,6 +534,8 @@ import BigCta from '../components/big-cta.astro';
      ============================================================ */
 
   .artifact-card--nardello {
+    view-transition-name: vt-work-nardello;
+    --vt-delay: 70ms;
     background-color: var(--color-surface-container-low);
     padding: 0.5rem;
     transform: rotate(-1deg);
@@ -545,6 +560,8 @@ import BigCta from '../components/big-cta.astro';
      ============================================================ */
 
   .artifact-card--codec {
+    view-transition-name: vt-work-codec;
+    --vt-delay: 100ms;
     background-color: var(--color-surface-container-high);
     padding: 0.5rem;
     transform: rotate(2deg);
@@ -570,6 +587,8 @@ import BigCta from '../components/big-cta.astro';
      ============================================================ */
 
   .artifact-quote {
+    view-transition-name: vt-work-quote-scrap;
+    --vt-delay: 90ms;
     background-color: var(--color-primary-container);
     padding: 2rem;
     border: 2px solid var(--color-on-surface);
@@ -622,6 +641,8 @@ import BigCta from '../components/big-cta.astro';
      ============================================================ */
 
   .artifact-card--kilpatrick {
+    view-transition-name: vt-work-kilpatrick;
+    --vt-delay: 130ms;
     background-color: var(--color-surface-container-highest);
     border: 2px solid var(--color-on-surface);
     transform: rotate(0.5deg);
@@ -677,6 +698,8 @@ import BigCta from '../components/big-cta.astro';
      ============================================================ */
 
   .work-cta {
+    view-transition-name: vt-work-cta;
+    --vt-delay: 160ms;
     margin-top: 8rem;
     position: relative;
     padding: 5rem 2rem;

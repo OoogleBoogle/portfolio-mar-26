@@ -110,3 +110,112 @@ body {
   background-color: var(--color-inverse-primary);
   color: #000000;
 }
+
+/* Turn cross-document view transitions on and set types to slide */
+@view-transition {
+  navigation: auto;
+  types: slide;
+}
+
+/* Keyframes — use `translate` property to avoid conflicting with existing `transform: rotate()` */
+@keyframes fall-out {
+  from { translate: 0 0;      opacity: 1; }
+  to   { translate: 0 100vh;  opacity: 0; }
+}
+
+@keyframes rise-in {
+  from { translate: 0 60px; opacity: 0; }
+  to   { translate: 0 0;    opacity: var(--vt-opacity, 1); }
+}
+
+/* Page-load entrance animation — applied to real elements, not pseudo-elements */
+.vt-enter {
+  animation: rise-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) var(--vt-delay, 0ms) both;
+}
+
+/* Pause entrance animations while a view transition is active.
+   JS removes .vt-transitioning after viewTransition.finished, which triggers the play. */
+.vt-transitioning .vt-enter {
+  animation-play-state: paused;
+}
+
+/* Staggered exit + hidden entry (real elements animate via CSS after transition ends) */
+html:active-view-transition-type(slide) {
+  /* Root: old page stays visible as background, new page hidden — no cross-fade */
+  &::view-transition-old(root) { animation: none; }
+  &::view-transition-new(root) { animation: none; opacity: 0; }
+
+  /* Nav: pinned — no animation */
+  &::view-transition-old(site-nav),
+  &::view-transition-new(site-nav) { animation: none; }
+
+  /* ── ENTRY: blocks rise from below, staggered ──
+     Each name gets an explicit delay — pseudo-elements cannot read --vt-delay
+     from their originating elements, so var() always falls back to 0ms. */
+
+  /* home — ~80ms between groups */
+  &::view-transition-new(vt-home-name)        { animation: rise-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) 600ms  both; }
+  &::view-transition-new(vt-home-tape)        { animation: rise-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) 660ms  both; }
+  &::view-transition-new(vt-home-ethos)       { animation: rise-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) 680ms  both; }
+  &::view-transition-new(vt-home-sidebar)     { animation: rise-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) 760ms  both; }
+  &::view-transition-new(vt-home-bento-a)     { animation: rise-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) 840ms  both; }
+  &::view-transition-new(vt-home-bento-b)     { animation: rise-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) 920ms  both; }
+
+  /* about — ~80ms between groups */
+  &::view-transition-new(vt-about-headline)   { animation: rise-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) 600ms  both; }
+  &::view-transition-new(vt-about-texture)    { animation: rise-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) 610ms  both; }
+  &::view-transition-new(vt-about-portrait)   { animation: rise-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) 680ms  both; }
+  &::view-transition-new(vt-about-tracklist)  { animation: rise-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) 760ms  both; }
+  &::view-transition-new(vt-about-quote)      { animation: rise-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) 840ms  both; }
+  &::view-transition-new(vt-about-manifesto)  { animation: rise-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) 920ms  both; }
+  &::view-transition-new(vt-about-identity)   { animation: rise-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) 1000ms both; }
+
+  /* work — ~80ms between groups */
+  &::view-transition-new(vt-work-title)       { animation: rise-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) 600ms  both; }
+  &::view-transition-new(vt-work-halftone)    { animation: rise-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) 640ms  both; }
+  &::view-transition-new(vt-work-tags)        { animation: rise-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) 680ms  both; }
+  &::view-transition-new(vt-work-heading)     { animation: rise-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) 720ms  both; }
+  &::view-transition-new(vt-work-nardello)    { animation: rise-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) 760ms  both; }
+  &::view-transition-new(vt-work-quote-scrap) { animation: rise-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) 810ms  both; }
+  &::view-transition-new(vt-work-codec)       { animation: rise-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) 840ms  both; }
+  &::view-transition-new(vt-work-kilpatrick)  { animation: rise-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) 920ms  both; }
+  &::view-transition-new(vt-work-cta)         { animation: rise-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) 1000ms both; }
+
+  /* ── EXIT: blocks fall down ── */
+  &::view-transition-old(vt-home-name)        { animation: fall-out 0.4s ease-in 0ms   both; }
+  &::view-transition-old(vt-home-sidebar)     { animation: fall-out 0.4s ease-in 30ms  both; }
+  &::view-transition-old(vt-home-ethos)       { animation: fall-out 0.4s ease-in 50ms  both; }
+  &::view-transition-old(vt-home-bento-a)     { animation: fall-out 0.4s ease-in 80ms  both; }
+  &::view-transition-old(vt-home-bento-b)     { animation: fall-out 0.4s ease-in 110ms both; }
+  &::view-transition-old(vt-home-tape)        { animation: fall-out 0.4s ease-in 50ms  both; }
+
+  &::view-transition-old(vt-about-texture)    { animation: fall-out 0.4s ease-in 20ms  both; }
+  &::view-transition-old(vt-about-headline)   { animation: fall-out 0.4s ease-in 0ms   both; }
+  &::view-transition-old(vt-about-portrait)   { animation: fall-out 0.4s ease-in 40ms  both; }
+  &::view-transition-old(vt-about-tracklist)  { animation: fall-out 0.4s ease-in 70ms  both; }
+  &::view-transition-old(vt-about-quote)      { animation: fall-out 0.4s ease-in 100ms both; }
+  &::view-transition-old(vt-about-manifesto)  { animation: fall-out 0.4s ease-in 50ms  both; }
+  &::view-transition-old(vt-about-identity)   { animation: fall-out 0.4s ease-in 130ms both; }
+
+  &::view-transition-old(vt-work-title)       { animation: fall-out 0.4s ease-in 0ms   both; }
+  &::view-transition-old(vt-work-tags)        { animation: fall-out 0.4s ease-in 40ms  both; }
+  &::view-transition-old(vt-work-halftone)    { animation: fall-out 0.4s ease-in 50ms  both; }
+  &::view-transition-old(vt-work-heading)     { animation: fall-out 0.4s ease-in 56ms  both; }
+  &::view-transition-old(vt-work-nardello)    { animation: fall-out 0.4s ease-in 70ms  both; }
+  &::view-transition-old(vt-work-codec)       { animation: fall-out 0.4s ease-in 50ms  both; }
+  &::view-transition-old(vt-work-quote-scrap) { animation: fall-out 0.4s ease-in 90ms  both; }
+  &::view-transition-old(vt-work-kilpatrick)  { animation: fall-out 0.4s ease-in 110ms both; }
+  &::view-transition-old(vt-work-cta)         { animation: fall-out 0.4s ease-in 140ms both; }
+}
+
+/* Group duration must cover the full entry window (last entry: 1000ms + 500ms = 1500ms) */
+::view-transition-group(*) {
+  animation-duration: 1.6s;
+}
+
+/* After navigation the pseudo-elements handled the visual entry — suppress real elements
+   re-animating. This class is added by pagereveal and clears automatically on the next
+   cross-document navigation since <html> is replaced entirely. */
+.vt-navigated .vt-enter {
+  animation: none;
+}

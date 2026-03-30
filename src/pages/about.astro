@@ -9,7 +9,7 @@ import Layout from '../layouts/Layout.astro';
     <div class="archive-hero__container">
 
       <!-- Headline block -->
-      <div class="archive-hero__headline-wrap">
+      <div class="archive-hero__headline-wrap vt-enter">
         <div class="archive-hero__headline-dot"></div>
         <h1 class="archive-hero__headline">
           <span class="archive-hero__headline-line">DC Metro HQ.</span>
@@ -22,7 +22,7 @@ import Layout from '../layouts/Layout.astro';
       <div class="archive-hero__grid">
 
         <!-- Portrait -->
-        <div class="archive-portrait">
+        <div class="archive-portrait vt-enter">
           <div class="archive-portrait__tint"></div>
           <img
             src="/guitar.jpg"
@@ -36,7 +36,7 @@ import Layout from '../layouts/Layout.astro';
         <div class="archive-cards">
 
           <!-- Track list — tech stack as record sleeve -->
-          <div class="track-list">
+          <div class="track-list vt-enter">
             <div class="track-list__tape"></div>
             <h2 class="track-list__title">VERSIONS OF TRUTH:</h2>
             <ul class="track-list__items">
@@ -64,7 +64,7 @@ import Layout from '../layouts/Layout.astro';
           </div>
 
           <!-- Quote block -->
-          <blockquote class="archive-quote">
+          <blockquote class="archive-quote vt-enter">
             "Not every layout has to behave itself."
           </blockquote>
 
@@ -72,7 +72,7 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </div>
     <!-- Background guitar strings texture -->
-    <div class="archive-bg-texture" aria-hidden="true">
+    <div class="archive-bg-texture vt-enter" aria-hidden="true">
       <img
         src="/archive-texture.png"
         alt=""
@@ -82,7 +82,7 @@ import Layout from '../layouts/Layout.astro';
 
   <!-- Jamstack Manifesto -->
   <section class="manifesto">
-    <div class="manifesto__outer">
+    <div class="manifesto__outer vt-enter">
       <div class="manifesto__inner">
 
         <!-- Dot-row texture along top edge -->
@@ -159,7 +159,7 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
   <!-- Identity -->
-  <div class="archive-identity">
+  <div class="archive-identity vt-enter">
     <div class="archive-identity__text">
       <span class="archive-identity__label">IDENTITY_MARK</span>
       <p class="archive-identity__body">
@@ -234,6 +234,8 @@ import Layout from '../layouts/Layout.astro';
   /* ── Headline ──────────────────────────────────────────────── */
 
   .archive-hero__headline-wrap {
+    view-transition-name: vt-about-headline;
+    --vt-delay: 0ms;
     position: relative;
     display: inline-block;
   }
@@ -306,6 +308,8 @@ import Layout from '../layouts/Layout.astro';
   /* ── Portrait ─────────────────────────────────────────────── */
 
   .archive-portrait {
+    view-transition-name: vt-about-portrait;
+    --vt-delay: 40ms;
     position: relative;
     transform: rotate(2deg);
   }
@@ -359,6 +363,8 @@ import Layout from '../layouts/Layout.astro';
   /* ── Track List ──────────────────────────────────────────── */
 
   .track-list {
+    view-transition-name: vt-about-tracklist;
+    --vt-delay: 70ms;
     background-color: var(--color-surface-container-high);
     padding: 2rem;
     border-left: 8px solid var(--color-primary);
@@ -433,6 +439,8 @@ import Layout from '../layouts/Layout.astro';
   /* ── Quote ────────────────────────────────────────────────── */
 
   .archive-quote {
+    view-transition-name: vt-about-quote;
+    --vt-delay: 100ms;
     background-color: var(--color-on-background);
     color: var(--color-surface-container);
     font-family: var(--font-body);
@@ -456,6 +464,8 @@ import Layout from '../layouts/Layout.astro';
 
   /* Double-border wrapper — "zine spread" feel */
   .manifesto__outer {
+    view-transition-name: vt-about-manifesto;
+    --vt-delay: 130ms;
     background-color: var(--color-surface);
     border: 4px solid var(--color-on-background);
     padding: 4px;
@@ -722,6 +732,8 @@ import Layout from '../layouts/Layout.astro';
      ============================================================ */
 
   .archive-identity {
+    view-transition-name: vt-about-identity;
+    --vt-delay: 160ms;
     margin-top: 6rem;
     padding-top: 3rem;
     border-top: 4px solid var(--color-on-background);
@@ -782,14 +794,17 @@ import Layout from '../layouts/Layout.astro';
      ============================================================ */
 
   .archive-bg-texture {
+    view-transition-name: vt-about-texture;
+    --vt-delay: 20ms;
+    --vt-opacity: 0.1;
     position: absolute;
     top: 50%;
+    margin-top: -12rem; /* was translate: 0 -50% — freed translate for rise-in animation */
     left: 0;
     width: 100%;
     height: 24rem;
-    translate: 0 -50%;
     z-index: -20;
-    opacity: 0.1;
+    opacity: var(--vt-opacity);
     pointer-events: none;
 
     img {
