@@ -209,6 +209,10 @@ html:active-view-transition-type(slide) {
   &::view-transition-old(vt-work-quote-scrap) { animation: fall-out 0.4s ease-in 90ms  both; }
   &::view-transition-old(vt-work-kilpatrick)  { animation: fall-out 0.4s ease-in 110ms both; }
   &::view-transition-old(vt-work-cta)         { animation: fall-out 0.4s ease-in 140ms both; }
+
+  /* ── SHARED (all pages) ── */
+  &::view-transition-new(vt-site-footer)      { animation: rise-in  0.5s cubic-bezier(0.22, 1, 0.36, 1) 1080ms both; }
+  &::view-transition-old(vt-site-footer)      { animation: fall-out 0.4s ease-in 160ms both; }
 }
 
 /* Group duration must cover the full entry window (last entry: 1000ms + 500ms = 1500ms) */
