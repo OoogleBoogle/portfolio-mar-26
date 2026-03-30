@@ -148,6 +148,20 @@ import Layout from '../layouts/Layout.astro';
           <div class="manifesto__sig-wrap">
             <div class="manifesto__sig">SIG</div>
             <div class="manifesto__sig-line"></div>
+            <div class="manifesto__sig-stamp-wrap">
+              <svg class="manifesto__sig-svg" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <defs>
+                  <filter id="stamp-rough" x="-15%" y="-15%" width="130%" height="130%">
+                    <feTurbulence type="turbulence" baseFrequency="0.05 0.04" numOctaves="4" seed="12" result="noise"/>
+                    <feDisplacementMap in="SourceGraphic" in2="noise" scale="5" xChannelSelector="R" yChannelSelector="G"/>
+                  </filter>
+                </defs>
+                <g filter="url(#stamp-rough)">
+                  <rect x="10" y="52" width="100" height="10" fill="#b02500" transform="rotate(45 60 60)"/>
+                  <rect x="10" y="52" width="100" height="10" fill="#b02500" transform="rotate(-45 60 60)"/>
+                </g>
+              </svg>
+            </div>
           </div>
         </footer>
 
@@ -256,7 +270,7 @@ import Layout from '../layouts/Layout.astro';
   .archive-hero__headline {
     font-family: var(--font-headline);
     font-weight: 900;
-    font-size: clamp(3.5rem, 10vw, 10rem);
+    font-size: clamp(3.5rem, 10vw, 8.5rem);
     text-transform: uppercase;
     line-height: 0.85;
     letter-spacing: -0.05em;
@@ -688,6 +702,7 @@ import Layout from '../layouts/Layout.astro';
     align-items: center;
     gap: 0.5rem;
     flex-shrink: 0;
+    position: relative;
   }
 
   .manifesto__sig {
@@ -710,6 +725,35 @@ import Layout from '../layouts/Layout.astro';
     height: 2px;
     background-color: var(--color-on-background);
     opacity: 0.4;
+  }
+
+  /* Stamp overlay — absolutely centered over the sig+line area */
+  .manifesto__sig-stamp-wrap {
+    position: absolute;
+    top: 50%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+
+  .manifesto__sig-svg {
+    width: 8rem;
+    height: 8rem;
+    display: block;
+    opacity: 0;
+    transform: scale(2.4) rotate(-8deg);
+    transform-origin: center;
+  }
+
+  @keyframes sig-stamp {
+    0%   { opacity: 0; transform: scale(1.5) rotate(-10deg); }
+    40%  { opacity: 1; transform: scale(0.9) rotate(-6deg); }
+    65%  { transform: scale(1.05) rotate(-7deg); }
+    100% { opacity: 1; transform: scale(1) rotate(-8deg); }
+  }
+
+  .manifesto__sig-svg.is-stamped {
+    animation: sig-stamp 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
 
   /* Halftone corner decoration */
@@ -865,3 +909,21 @@ import Layout from '../layouts/Layout.astro';
     color: var(--color-on-background);
   }
 </style>
+
+<script>
+  const sig = document.querySelector('.manifesto__sig-svg');
+  if (sig) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            sig.classList.add('is-stamped');
+            io.disconnect();
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+    io.observe(sig);
+  }
+</script>
