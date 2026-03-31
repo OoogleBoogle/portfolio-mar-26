@@ -3,7 +3,39 @@ import Layout from '../layouts/Layout.astro';
 import BigCta from '../components/big-cta.astro';
 ---
 
-<Layout title="Work — Simon Attfield" activePage="work">
+<Layout
+  title="Work — Simon Attfield"
+  description="Front-end work spanning investigations firms, brand identity, and enterprise. Code as craft, without the framework tax."
+  activePage="work"
+>
+  <Fragment slot="head">
+    <script is:inline type="application/ld+json" set:text={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "url": "https://simonattfield.com/work",
+      "name": "Work — Simon Attfield",
+      "description": "Front-end work spanning investigations firms, brand identity, and enterprise.",
+      "author": { "@id": "https://simonattfield.com/#person" },
+      "hasPart": [
+        {
+          "@type": "CreativeWork",
+          "name": "Nardello & Co",
+          "description": "Built the public-facing site for a global investigations firm. Quiet, fast, no drama.",
+          "url": "https://nardelloandco.com/"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Smashcreate",
+          "description": "Brand identity at agency quality, without the agency overhead."
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Kilpatrick Townsend",
+          "description": "Enterprise legal site. Fast, accessible, no drama."
+        }
+      ]
+    })} />
+  </Fragment>
 
   <!-- Hero -->
   <section class="work-hero">
@@ -87,7 +119,7 @@ import BigCta from '../components/big-cta.astro';
       <aside class="artifact-quote vt-enter">
         <span class="material-symbols-outlined artifact-quote__icon" style="font-variation-settings: 'FILL' 1">format_quote</span>
         <p class="artifact-quote__text">
-          "Three clients. Three very different problems. One bar."
+          "Three very different problems. One bar."
         </p>
         <div class="artifact-quote__attribution">
           <div class="artifact-quote__rule"></div>

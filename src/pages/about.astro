@@ -2,7 +2,35 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="About — Simon Attfield" activePage="about">
+<Layout
+  title="About — Simon Attfield"
+  description="DC Metro-based front-end developer with Yorkshire roots. Built for Google and Meta. Accessible by default, fast by preference, weird by design."
+  activePage="about"
+>
+  <Fragment slot="head">
+    <script is:inline type="application/ld+json" set:text={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "ProfilePage",
+      "url": "https://simonattfield.com/about",
+      "name": "About Simon Attfield",
+      "description": "DC Metro-based front-end developer with Yorkshire roots. Built for Google and Meta.",
+      "mainEntity": {
+        "@type": "Person",
+        "@id": "https://simonattfield.com/#person",
+        "name": "Simon Attfield",
+        "jobTitle": "Front-End Developer",
+        "description": "Front-end developer with 8+ years experience across agencies, startups, and enterprise. Specialises in React, Next.js, Vue, Astro, and headless CMS.",
+        "knowsAbout": ["React", "Next.js", "Vue", "Nuxt", "Astro", "Headless WordPress", "Static Site Generation", "Web Performance"],
+        "sameAs": ["https://linkedin.com/in/simattfield"],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Bethesda",
+          "addressRegion": "MD",
+          "addressCountry": "US"
+        }
+      }
+    })} />
+  </Fragment>
 
   <!-- Hero -->
   <section class="archive-hero">
