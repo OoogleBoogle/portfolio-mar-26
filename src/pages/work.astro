@@ -32,6 +32,13 @@ import BigCta from '../components/big-cta.astro';
           "@type": "CreativeWork",
           "name": "Kilpatrick Townsend",
           "description": "Enterprise legal site. Fast, accessible, no drama."
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Schwarzman Scholars 10th Anniversary",
+          "description": "10th anniversary site for a global scholarship. Webby Honoree 2025.",
+          "url": "https://schwarzmanscholars.org/",
+          "award": "Webby Honoree 2025"
         }
       ]
     })} />
@@ -115,16 +122,35 @@ import BigCta from '../components/big-cta.astro';
         </div>
       </article>
 
-      <!-- Quote scrap — 4 cols -->
-      <aside class="artifact-quote vt-enter">
-        <span class="material-symbols-outlined artifact-quote__icon" style="font-variation-settings: 'FILL' 1">format_quote</span>
-        <p class="artifact-quote__text">
-          "Three very different problems. One bar."
-        </p>
-        <div class="artifact-quote__attribution">
-          <div class="artifact-quote__rule"></div>
+      <!-- Card 4: Schwarzman Scholars — 4 cols -->
+      <!-- Drop a screenshot at /work/schwarzman/screen.jpg to replace the decorative header -->
+      <article class="artifact-card artifact-card--schwarzman vt-enter">
+        <div class="schwarzman-header artifact-card__img-wrap
+        artifact-card__img-wrap--square">
+          <video loop muted playsinline class="artifact-card__img" poster="/work/schwarzman/screen.jpg">
+            <source src="/work/schwarzman/schwarzman-scroll.mp4" type="video/mp4">
+            <img
+              srcset="/work/schwarzman/screen.jpg 1x, /work/schwarzman/screen@2x.jpg 2x"
+              src="/work/schwarzman/screen.jpg"
+              alt="Meta Codec Avatars"
+              class="artifact-card__img"
+            />
+          </video>
+          <!-- <div class="schwarzman-bg-mark" aria-hidden="true">X</div> -->
+          <!-- <div class="schwarzman-award-stamp">
+            <span>WEBBYS</span>
+            <span>HONOREE</span>
+          </div> -->
         </div>
-      </aside>
+        <div class="artifact-card__body">
+          <div class="artifact-card__art-tag">ART_004</div>
+          <h3 class="artifact-card__title">SCHWARZMAN<br>SCHOLARS</h3>
+          <p class="artifact-card__desc">
+            10th anniversary site for a global scholarship. Built for permanence.
+          </p>
+          <a href="https://www.schwarzmanscholars.org/ten-year-anniversary/" target="_blank" rel="noopener noreferrer" class="artifact-card__cta artifact-card__cta--outline">VIEW_ARTIFACT</a>
+        </div>
+      </article>
 
       <!-- Card 3: Kilpatrick — wide (8 cols) -->
       <article class="artifact-card artifact-card--kilpatrick vt-enter">
@@ -169,7 +195,7 @@ import BigCta from '../components/big-cta.astro';
   </section>
 
   <!-- Footer decoration -->
-  <div slot="footer-decoration" class="work-footer-decor" aria-hidden="true">BRUTAL</div>
+  <div slot="footer-decoration" class="work-footer-decor" aria-hidden="true">DEPLOYED</div>
 
 </Layout>
 
@@ -615,57 +641,99 @@ import BigCta from '../components/big-cta.astro';
   }
 
   /* ============================================================
-     QUOTE SCRAP (col-span-4)
+     CARD — SCHWARZMAN SCHOLARS (col-span-4)
      ============================================================ */
 
-  .artifact-quote {
-    view-transition-name: vt-work-quote-scrap;
+  .artifact-card--schwarzman {
+    view-transition-name: vt-work-schwarzman;
     --vt-delay: 90ms;
-    background-color: var(--color-primary-container);
-    padding: 2rem;
-    border: 2px solid var(--color-on-surface);
-    transform: rotate(-3deg);
-    box-shadow: 12px 12px 0px color-mix(in srgb, #000 10%, transparent);
+    background-color: var(--color-on-surface);
+    padding: 0.5rem;
+    transform: rotate(-2deg);
 
     @media (min-width: 768px) {
       grid-column: span 4;
+      top: -160px;
+    }
+
+    &:hover {
+      transform: rotate(0deg);
+    }
+
+    .artifact-card__body {
+      background-color: var(--color-surface-container-low);
+      margin-top: 0.5rem;
+      border-top: 2px solid var(--color-on-surface);
+    }
+
+    /* art-tag inherits shared styles but needs to sit in the body now */
+    .artifact-card__art-tag {
+      top: -1rem;
+      right: -1rem;
     }
   }
 
-  .artifact-quote__icon {
-    font-size: 2.5rem;
-    color: var(--color-on-primary-container);
-    display: block;
-    margin-bottom: 1rem;
-  }
-
-  .artifact-quote__text {
-    font-family: var(--font-body);
-    font-size: 1.25rem;
-    font-weight: 500;
-    line-height: 1.4;
-    color: var(--color-on-primary-container);
-    margin: 0 0 1.5rem;
-  }
-
-  .artifact-quote__attribution {
+  .schwarzman-header {
+    position: relative;
+    background-color: var(--color-primary-container);
+    aspect-ratio: 1 / 1;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    justify-content: center;
+    overflow: hidden;
+    border: 2px solid var(--color-on-surface);
+
+    .artifact-card__img {
+      object-position: center;
+    }
   }
 
-  .artifact-quote__rule {
-    width: 3rem;
-    height: 2px;
-    background-color: var(--color-on-primary-container);
-  }
-
-  .artifact-quote__author {
-    font-family: var(--font-label);
+  .schwarzman-bg-mark {
+    position: absolute;
+    font-family: var(--font-headline);
     font-weight: 900;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    color: var(--color-on-primary-container);
+    font-size: clamp(7rem, 14vw, 11rem);
+    line-height: 1;
+    letter-spacing: -0.1em;
+    color: var(--color-on-surface);
+    opacity: 0.08;
+    user-select: none;
+    pointer-events: none;
+    /* slight xerox skew */
+    transform: scaleY(1.2) rotate(-8deg);
+  }
+
+  .schwarzman-award-stamp {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1;
+    gap: 0.1em;
+    background-color: var(--color-secondary);
+    color: var(--color-on-secondary);
+    padding: 0.75rem 1.5rem;
+    transform: rotate(-11deg);
+    border: 2px solid var(--color-on-surface);
+    box-shadow: 5px 5px 0 var(--color-on-surface);
+
+    span:first-child {
+      font-family: var(--font-label);
+      font-weight: 900;
+      font-size: clamp(1.25rem, 3vw, 1.75rem);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    span:last-child {
+      font-family: var(--font-label);
+      font-weight: 900;
+      font-size: clamp(0.65rem, 1.5vw, 0.85rem);
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      opacity: 0.85;
+    }
   }
 
   /* ============================================================
