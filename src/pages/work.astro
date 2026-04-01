@@ -1,6 +1,39 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import BigCta from '../components/big-cta.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "url": "https://simonattfield.com/work",
+  "name": "Work — Simon Attfield",
+  "description": "Front-end work spanning investigations firms, brand identity, and enterprise.",
+  "author": { "@id": "https://simonattfield.com/#person" },
+  "hasPart": [
+    {
+      "@type": "CreativeWork",
+      "name": "Nardello & Co",
+      "description": "Built the public-facing site for a global investigations firm. Quiet, fast, no drama.",
+      "url": "https://nardelloandco.com/"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "Smashcreate",
+      "description": "Brand identity at agency quality, without the agency overhead."
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "Kilpatrick Townsend",
+      "description": "Enterprise legal site. Fast, accessible, no drama."
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "Schwarzman Scholars 10th Anniversary",
+      "description": "10th anniversary site for a global scholarship. Webby Honoree 2025.",
+      "url": "https://schwarzmanscholars.org/",
+    }
+  ]
+}
 ---
 
 <Layout
@@ -9,39 +42,7 @@ import BigCta from '../components/big-cta.astro';
   activePage="work"
 >
   <Fragment slot="head">
-    <script is:inline type="application/ld+json" set:text={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "CollectionPage",
-      "url": "https://simonattfield.com/work",
-      "name": "Work — Simon Attfield",
-      "description": "Front-end work spanning investigations firms, brand identity, and enterprise.",
-      "author": { "@id": "https://simonattfield.com/#person" },
-      "hasPart": [
-        {
-          "@type": "CreativeWork",
-          "name": "Nardello & Co",
-          "description": "Built the public-facing site for a global investigations firm. Quiet, fast, no drama.",
-          "url": "https://nardelloandco.com/"
-        },
-        {
-          "@type": "CreativeWork",
-          "name": "Smashcreate",
-          "description": "Brand identity at agency quality, without the agency overhead."
-        },
-        {
-          "@type": "CreativeWork",
-          "name": "Kilpatrick Townsend",
-          "description": "Enterprise legal site. Fast, accessible, no drama."
-        },
-        {
-          "@type": "CreativeWork",
-          "name": "Schwarzman Scholars 10th Anniversary",
-          "description": "10th anniversary site for a global scholarship. Webby Honoree 2025.",
-          "url": "https://schwarzmanscholars.org/",
-          "award": "Webby Honoree 2025"
-        }
-      ]
-    })} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
   </Fragment>
 
   <!-- Hero -->

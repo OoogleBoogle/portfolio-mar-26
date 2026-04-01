@@ -9,7 +9,7 @@ import BigCta from '../components/big-cta.astro';
   activePage="home"
 >
   <Fragment slot="head">
-    <script is:inline type="application/ld+json" set:text={JSON.stringify({
+    <script is:inline type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@graph": [
         {

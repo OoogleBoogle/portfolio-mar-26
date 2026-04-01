@@ -8,7 +8,7 @@ import Layout from '../layouts/Layout.astro';
   activePage="about"
 >
   <Fragment slot="head">
-    <script is:inline type="application/ld+json" set:text={JSON.stringify({
+    <script is:inline type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "ProfilePage",
       "url": "https://simonattfield.com/about",
