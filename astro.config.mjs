@@ -3,7 +3,7 @@ import { defineConfig, fontProviders } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://portfolio-mar-26.vercel.app/',
+  site: 'https://www.simonattfield.com/',
   fonts: [
     {
       provider: fontProviders.google(),

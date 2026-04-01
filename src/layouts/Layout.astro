@@ -71,9 +71,10 @@ const ogImage = new URL('/og-image.jpg', Astro.site ?? Astro.url).href;
     // then release them once the view transition finishes so they play
     // on the real elements (not the pseudo-element screenshots).
     window.addEventListener('pagereveal', async (e) => {
-      await document.fonts.ready;
       if ((e as any).viewTransition) {
+        // Pause .vt-enter immediately so they don't start animating before fonts load.
         document.documentElement.classList.add('vt-transitioning');
+        await document.fonts.ready;
 
         // Safety net: always release .vt-enter after 2.5s even if the promise stalls.
         const fallback = setTimeout(() => {
