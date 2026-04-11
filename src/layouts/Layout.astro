@@ -3,6 +3,7 @@ import '../styles/global.css';
 import { Font } from 'astro:assets';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import Analytics from '@vercel/analytics/astro'
 
 interface Props {
   title?: string;
@@ -48,6 +49,7 @@ const ogImage = new URL('/og-image.jpg', Astro.site ?? Astro.url).href;
     <slot name="head" />
     <Font cssVariable="--font-headline" preload />
     <Font cssVariable="--font-body" preload />
+    <Analytics />
   </head>
   <body class={activePage === 'home' ? 'layout-body' : ''}>
     <!-- Xerox grain: global noise filter that kills digital flatness -->
