@@ -24,4 +24,8 @@ export default defineConfig({
       fallbacks: ['serif'],
     },
   ],
+  redirects: {
+    "/projects": "/work",
+    "/resume": "/about",
+  },
 });
